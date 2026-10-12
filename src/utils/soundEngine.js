@@ -24,7 +24,7 @@ class SoundEngine {
       const unlockAudio = () => {
         if (!this.hasUnlocked) {
           this.hasUnlocked = true;
-          if (!this.isMuted) {
+          if (!this.isMuted && !document.hidden) {
             this.startLoop(false);
           }
           ['click', 'touchstart', 'pointerdown', 'keydown'].forEach((evt) => {
@@ -36,6 +36,33 @@ class SoundEngine {
       ['click', 'touchstart', 'pointerdown', 'keydown'].forEach((evt) => {
         window.addEventListener(evt, unlockAudio, { capture: true, once: true });
       });
+
+      // Automatically pause audio when user switches tabs, minimizes browser, or switches apps
+      const pauseForBackground = () => {
+        const currentAudio = this.getAudio();
+        if (currentAudio && !currentAudio.paused) {
+          currentAudio.pause();
+        }
+      };
+
+      const resumeForForeground = () => {
+        if (!this.isMuted && !document.hidden && document.hasFocus()) {
+          this.startLoop(false);
+        }
+      };
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden || document.visibilityState !== 'visible') {
+          pauseForBackground();
+        } else {
+          resumeForForeground();
+        }
+      });
+
+      window.addEventListener('blur', pauseForBackground);
+      window.addEventListener('focus', resumeForForeground);
+      window.addEventListener('pagehide', pauseForBackground);
+      window.addEventListener('beforeunload', pauseForBackground);
     }
   }
 
@@ -65,7 +92,7 @@ class SoundEngine {
 
       // Explicit fallback listener to guarantee seamless start-to-end loop repetition
       this.audioInstance.addEventListener('ended', () => {
-        if (!this.isMuted && this.audioInstance) {
+        if (!this.isMuted && !document.hidden && this.audioInstance) {
           this.audioInstance.volume = this.targetVolume;
           this.audioInstance.currentTime = 0;
           this.audioInstance.play().catch(() => {});
@@ -77,9 +104,10 @@ class SoundEngine {
     return this.audioInstance;
   }
 
-  // Starts the continuous start-to-end loop
+  // Starts the continuous start-to-end loop only when user is actively on the page
   startLoop(resetToStart = false) {
     if (this.isMuted) return;
+    if (typeof document !== 'undefined' && document.hidden) return;
 
     try {
       const audio = this.getAudio();
