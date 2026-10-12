@@ -540,8 +540,10 @@ export default function ScrollySections({
       {/* =========================================================================
           CHAPTER 3: SURVIVAL FINALE (Cinematic Netflix-Style Closing Stage)
           ========================================================================= */}
-      <section className="relative min-h-screen w-full flex flex-col justify-between items-center p-4 sm:p-12 text-center pointer-events-none">
-        
+      <section
+        id="chapter-3"
+        className="relative min-h-screen w-full flex flex-col justify-between items-center p-4 sm:p-12 text-center pointer-events-none"
+      >
         {/* Top Header Badge */}
         <div className="pointer-events-auto mt-6 sm:mt-12 flex flex-col items-center font-sans">
           <h2 className="font-benguiat text-3xl sm:text-6xl text-white tracking-wider mt-4 drop-shadow-[0_4px_25px_rgba(0,0,0,0.95)] max-w-4xl">
@@ -553,13 +555,11 @@ export default function ScrollySections({
           </p>
         </div>
 
-        {/* Center Space Clear for 3D Demogorgon */}
-        <div className="w-full flex-1" />
+        {/* Guaranteed Open Space for 3D Demogorgon Face & Body */}
+        <div className="w-full flex-1 min-h-[52vh] sm:min-h-[56vh]" />
 
-        {/* Bottom Interactive Terminal & Official Footer */}
-        <div className="w-full max-w-4xl flex flex-col items-center gap-6 pointer-events-auto mb-4 font-sans">
-          
-          {/* Main Action Buttons */}
+        {/* Bottom Interactive Buttons of Chapter 3 */}
+        <div className="w-full max-w-4xl flex flex-col items-center gap-6 pointer-events-auto mb-6 sm:mb-10 font-sans">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={scrollToChapter2}
@@ -585,23 +585,43 @@ export default function ScrollySections({
               <span>Back to Top ↑</span>
             </button>
           </div>
+        </div>
+      </section>
 
-          {/* Prestige Festival Footer + Final Locked-Down Cinematic Video */}
-          <footer className="w-full border-t border-zinc-800/80 pt-6 flex flex-col gap-6">
-            <div className="w-full flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
-              <div className="flex items-center gap-2">
-                <span className="text-white font-semibold font-benguiat text-sm tracking-wider">TECHSPARK 2K26</span>
-                <span className="text-zinc-600">•</span>
-                <span>Department of Information Science &amp; Engineering</span>
-              </div>
-              <div>
-                APS College of Engineering, Bengaluru • October 15, 2026
-              </div>
+      {/* =========================================================================
+          FINAL FOOTER & LOCKED-DOWN CINEMATIC VIDEO (Separate from 3D Model Stage)
+          ========================================================================= */}
+      <footer
+        id="final-footer"
+        className="relative z-30 w-full bg-gradient-to-b from-transparent via-black/95 to-black pt-10 pb-10 px-4 sm:px-12 pointer-events-auto font-sans"
+      >
+        <div className="w-full max-w-4xl mx-auto border-t border-zinc-800/80 pt-6 flex flex-col gap-6">
+          <div className="w-full flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2 text-center sm:text-left">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+              <span className="text-white font-semibold font-benguiat text-sm tracking-wider">TECHSPARK 2K26</span>
+              <span className="text-zinc-600">•</span>
+              <span>Department of Information Science &amp; Engineering</span>
             </div>
+            <div>
+              APS College of Engineering, Bengaluru • October 15, 2026
+            </div>
+          </div>
 
-            {/* Final Footer Video: Muted, Loop, Zero Controls (No Fullscreen, Zoom, Pause, Skip, Long-Press, or Double-Tap) */}
+          {/* Final Footer Video: Muted, Loop, Zero Controls (No Fullscreen, Zoom, Pause, Skip, Long-Press, or Double-Tap) */}
+          <div
+            className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-red-950/60 bg-black shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_35px_rgba(255,15,30,0.15)] select-none"
+            style={{
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+              touchAction: 'pan-y',
+            }}
+            onContextMenu={(e) => e.preventDefault()}
+            onDoubleClick={(e) => e.preventDefault()}
+          >
+            {/* Transparent Interaction Shield: Blocks tap, double-tap, long-press, zoom, and context menu while allowing vertical scroll */}
             <div
-              className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-red-950/60 bg-black shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_35px_rgba(255,15,30,0.15)] select-none"
+              className="absolute inset-0 z-20 select-none"
               style={{
                 WebkitTouchCallout: 'none',
                 WebkitUserSelect: 'none',
@@ -610,56 +630,43 @@ export default function ScrollySections({
               }}
               onContextMenu={(e) => e.preventDefault()}
               onDoubleClick={(e) => e.preventDefault()}
-            >
-              {/* Transparent Interaction Shield: Blocks tap, double-tap, long-press, zoom, and context menu while allowing vertical scroll */}
-              <div
-                className="absolute inset-0 z-20 select-none"
-                style={{
-                  WebkitTouchCallout: 'none',
-                  WebkitUserSelect: 'none',
-                  userSelect: 'none',
-                  touchAction: 'pan-y',
-                }}
-                onContextMenu={(e) => e.preventDefault()}
-                onDoubleClick={(e) => e.preventDefault()}
-                onClick={(e) => e.preventDefault()}
-              />
+              onClick={(e) => e.preventDefault()}
+            />
 
-              <video
-                ref={(el) => {
-                  if (el) {
-                    el.defaultMuted = true;
-                    el.muted = true;
-                  }
-                }}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                controls={false}
-                disablePictureInPicture
-                disableRemotePlayback
-                controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
-                tabIndex={-1}
-                aria-hidden="true"
-                onContextMenu={(e) => e.preventDefault()}
-                onPause={(e) => {
-                  e.currentTarget.play().catch(() => {});
-                }}
-                onVolumeChange={(e) => {
-                  e.currentTarget.muted = true;
-                  e.currentTarget.volume = 0;
-                }}
-                className="w-full aspect-video object-cover pointer-events-none select-none block"
-              >
-                <source src="/assets/APSCE_THINGS_VID.webm" type="video/webm" />
-                <source src="/assets/APSCE_THINGS_VID.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </footer>
+            <video
+              ref={(el) => {
+                if (el) {
+                  el.defaultMuted = true;
+                  el.muted = true;
+                }
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              controls={false}
+              disablePictureInPicture
+              disableRemotePlayback
+              controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+              tabIndex={-1}
+              aria-hidden="true"
+              onContextMenu={(e) => e.preventDefault()}
+              onPause={(e) => {
+                e.currentTarget.play().catch(() => {});
+              }}
+              onVolumeChange={(e) => {
+                e.currentTarget.muted = true;
+                e.currentTarget.volume = 0;
+              }}
+              className="w-full aspect-video object-cover pointer-events-none select-none block"
+            >
+              <source src="/assets/APSCE_THINGS_VID.webm" type="video/webm" />
+              <source src="/assets/APSCE_THINGS_VID.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }

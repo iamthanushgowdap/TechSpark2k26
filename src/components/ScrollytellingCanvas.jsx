@@ -291,36 +291,41 @@ export default function ScrollytellingCanvas({
         // Leaping jump animation (pounce)
         switchAction('pounce', true); // play jump leap once
         hasRoaredRef.current = false;
-      } else if (p < 0.72) {
-        // CHAPTER 2 & COMPACT DEVELOPER CREDIT SECTION
-        // Keep 3D model hidden so it never overlays Chapter 2 or the Developer Credit
-        if (modelRef.current) modelRef.current.visible = false;
-
-        // Stop the jump animation so it never stays stuck in the jumping stage
-        if (activeActionRef.current === 'pounce' && actionsRef.current && actionsRef.current['pounce']) {
-          actionsRef.current['pounce'].stop();
-          activeActionRef.current = null;
-        }
-
-        // Already jumped and DOWN in the third section
-        currentPos.set(0, -1.0, -0.2);
-        targetPos.set(0, -1.0, -0.2);
-        targetRotY = 0;
-        targetCamZ = 3.6;
-        hasRoaredRef.current = false;
       } else {
-        // CHAPTER 3: SURVIVAL CLEARANCE (Last Section)
-        // "So, what has to be happen means it needs to be already jumped to the third one
-        // and it needs to be down. So, when we go to the third chapter,
-        // then it will wake up and it will roar. That is the name of the animation:
-        // demogorgon_ref_demogorgon_head1_skeleton|PounceHit"
-        if (modelRef.current) modelRef.current.visible = true;
-        targetPos.set(0, -1.0, -0.2);
-        targetRotY = 0 + mouseRef.current.x * 0.25;
-        targetCamZ = 3.6;
+        // Check exact viewport position of #chapter-3 and #final-footer
+        const chapter3El = document.getElementById('chapter-3');
+        const footerEl = document.getElementById('final-footer');
+        const c3Rect = chapter3El ? chapter3El.getBoundingClientRect() : null;
+        const footerRect = footerEl ? footerEl.getBoundingClientRect() : null;
 
-        // Play the user's uploaded animation: PounceHit (wakes up and roars!) in loop
-        switchAction('pounceHit', false);
+        const isChapter3InView = c3Rect ? c3Rect.top < window.innerHeight * 0.55 : p >= 0.65;
+        const isFooterCovering = footerRect ? footerRect.top < window.innerHeight * 0.65 : false;
+
+        if (!isChapter3InView || isFooterCovering) {
+          // CHAPTER 2, DEVELOPER CREDIT, OR FINAL FOOTER VIDEO
+          // Keep 3D model hidden so it never overlays Chapter 2, Developer Credit, or Footer Video
+          if (modelRef.current) modelRef.current.visible = false;
+
+          if (activeActionRef.current === 'pounce' && actionsRef.current && actionsRef.current['pounce']) {
+            actionsRef.current['pounce'].stop();
+            activeActionRef.current = null;
+          }
+
+          currentPos.set(0, -1.0, -0.2);
+          targetPos.set(0, -1.0, -0.2);
+          targetRotY = 0;
+          targetCamZ = 3.6;
+          hasRoaredRef.current = false;
+        } else {
+          // CHAPTER 3: SURVIVAL CLEARANCE (3D Demogorgon Stage)
+          if (modelRef.current) modelRef.current.visible = true;
+          targetPos.set(0, -1.0, -0.2);
+          targetRotY = 0 + mouseRef.current.x * 0.25;
+          targetCamZ = 3.6;
+
+          // Play the user's uploaded animation: PounceHit (wakes up and roars!) in loop
+          switchAction('pounceHit', false);
+        }
       }
 
       // Smooth damped lerp towards target coordinates
