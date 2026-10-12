@@ -19,6 +19,7 @@ export default function ScrollySections({
   const [selectedDossier, setSelectedDossier] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalEventId, setModalEventId] = useState('01');
+  const [isDevCardOpen, setIsDevCardOpen] = useState(false);
 
   const handleOpenRegistration = (eventId) => {
     soundEngine.playPortalGlitch();
@@ -29,6 +30,11 @@ export default function ScrollySections({
   const handleOpenDossier = (event) => {
     soundEngine.playPortalGlitch();
     setSelectedDossier(event);
+  };
+
+  const handleOpenDevCard = () => {
+    soundEngine.playPortalGlitch();
+    setIsDevCardOpen(true);
   };
 
   const scrollToChapter2 = () => {
@@ -48,6 +54,76 @@ export default function ScrollySections({
         initialEventId={modalEventId}
         events={EVENTS_DATA}
       />
+
+      {/* 1B. Developer Profile Card Modal (Opens when clicking Developer Image/Card) */}
+      {isDevCardOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto animate-fadeIn font-sans">
+          {/* Backdrop */}
+          <div
+            onClick={() => setIsDevCardOpen(false)}
+            className="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
+          />
+
+          {/* Popup Developer Card */}
+          <div className="relative z-10 w-full max-w-xs sm:max-w-sm rounded-3xl border border-red-600/70 bg-gradient-to-b from-[#160106] via-[#090003] to-[#040002] p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(255,20,35,0.3)] overflow-hidden">
+            {/* Ambient Crimson Glow */}
+            <div className="absolute -top-16 -left-16 w-44 h-44 rounded-full bg-red-600/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
+
+            {/* Top Header Row + Close Button */}
+            <div className="relative z-10 flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse" />
+                <span className="text-[10px] font-bold tracking-[0.28em] text-red-400 uppercase">
+                  CREATOR ID • 001
+                </span>
+              </div>
+              <button
+                onClick={() => setIsDevCardOpen(false)}
+                className="w-8 h-8 rounded-full border border-zinc-800 bg-zinc-900/80 hover:border-red-500/60 hover:bg-red-950/50 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                aria-label="Close developer card"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Unobstructed Full Square Portrait Frame */}
+            <div className="relative mx-auto w-full aspect-square mb-5">
+              <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border-t-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -top-1.5 -right-1.5 w-5 h-5 border-t-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-5 h-5 border-b-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 border-b-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+
+              <div className="w-full h-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(255,20,35,0.3)]">
+                <img
+                  src="/assets/img.png"
+                  alt="Thanush Gowda P - Website Developer"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+
+            {/* Card Footer Details (Below Image, Zero Overlay) */}
+            <div className="relative z-10 text-center flex flex-col items-center">
+              <span className="text-[10px] font-bold tracking-[0.3em] text-red-400 uppercase mb-1.5">
+                WEBSITE DEVELOPER
+              </span>
+
+              <div className="inline-flex flex-col items-center">
+                <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-red-500 to-transparent shadow-[0_0_8px_#ff1e27] mb-1.5" />
+                <h3 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider leading-none">
+                  THANUSH GOWDA P
+                </h3>
+              </div>
+
+              <p className="mt-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                <span className="block">Designed &amp; Engineered the <span className="text-white font-semibold">TechSpark 2K26</span></span>
+                <span className="block mt-0.5">Web Experience • <span className="text-red-400 font-medium">ISE, APSCE</span></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* 2. Cinematic Slide-Out Dossier Drawer (Spacious, Human-Crafted Editorial Layout) */}
       {selectedDossier && (
@@ -369,22 +445,27 @@ export default function ScrollySections({
 
       {/* =========================================================================
           DEVELOPER CREDIT: COMPACT RIFT SIGNATURE (Thanush Gowda P)
-          Placed after Chapter 2 and before Chapter 3 — Short, non-overlaid split card
+          Placed after Chapter 2 and before Chapter 3 — Horizontal on mobile & desktop
           ========================================================================= */}
       <section 
         id="developer-spotlight"
-        className="relative w-full flex items-center justify-center px-4 py-6 sm:py-10 my-4 sm:my-8"
+        className="relative w-full flex items-center justify-center px-3 sm:px-4 py-6 sm:py-10 my-4 sm:my-8"
       >
-        <div className="w-full max-w-2xl pointer-events-auto font-sans">
-          <div className="relative rounded-2xl border border-red-900/60 bg-gradient-to-r from-[#120105]/95 via-[#090003]/95 to-[#120105]/95 backdrop-blur-xl p-4 sm:p-5 shadow-[0_12px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(255,15,30,0.18)] overflow-hidden">
-            
+        <div className="w-fit max-w-full pointer-events-auto font-sans">
+          <div
+            onClick={handleOpenDevCard}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleOpenDevCard(); }}
+            className="group relative rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#120105]/95 via-[#090003]/95 to-[#120105]/95 backdrop-blur-xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-[0_12px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(255,15,30,0.18)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_40px_rgba(255,20,35,0.35)] transition-all duration-300 cursor-pointer overflow-hidden"
+          >
             {/* Subtle Ambient Rift Glow */}
             <div className="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-red-600/15 blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <div className="relative z-10 flex flex-row items-center gap-3.5 sm:gap-6">
               
-              {/* Unobstructed Portrait Frame (Zero Text Overlay, 1:1 Square) */}
-              <div className="relative group shrink-0 w-24 h-24 sm:w-28 sm:h-28">
+              {/* Unobstructed Portrait Frame (Zero Text Overlay, 1:1 Square, Clickable) */}
+              <div className="relative shrink-0 w-20 h-20 xs:w-22 xs:h-22 sm:w-28 sm:h-28">
                 {/* Corner Crimson Brackets */}
                 <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
                 <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
@@ -400,34 +481,28 @@ export default function ScrollySections({
                 </div>
               </div>
 
-              {/* Compact Credit Info Beside Photo */}
-              <div className="flex-1 flex flex-col items-center sm:items-start text-center sm:text-left">
-                <span className="text-[10px] font-bold tracking-[0.3em] text-red-400 uppercase mb-1">
+              {/* Compact Credit Info Beside Photo (Always Left-Aligned on Phone & Desktop) */}
+              <div className="flex flex-col items-start text-left min-w-0">
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.26em] sm:tracking-[0.3em] text-red-400 uppercase mb-1">
                   WEBSITE DEVELOPER
                 </span>
 
-                <div className="inline-flex flex-col items-center sm:items-start">
+                <div className="inline-flex flex-col items-start">
                   <div className="w-full h-[1.5px] bg-gradient-to-r from-red-500 via-red-400 to-transparent shadow-[0_0_8px_#ff1e27] mb-1" />
-                  <h3 className="font-stranger-title text-xl sm:text-2xl text-white uppercase tracking-wider leading-none">
+                  <h3 className="font-stranger-title text-[17px] xs:text-lg sm:text-2xl text-white uppercase tracking-wider leading-none whitespace-nowrap">
                     THANUSH GOWDA P
                   </h3>
                 </div>
 
-                <p className="mt-1.5 text-xs sm:text-sm text-zinc-400">
-                  Designed &amp; Engineered the <span className="text-zinc-200 font-medium">TechSpark 2K26</span> Web Experience • <span className="text-red-400/90">ISE, APSCE</span>
+                <p className="mt-1.5 text-[11px] xs:text-xs sm:text-sm text-zinc-400 leading-snug">
+                  <span className="block whitespace-nowrap">
+                    Designed &amp; Engineered the <span className="text-zinc-200 font-semibold">TechSpark 2K26</span>
+                  </span>
+                  <span className="block whitespace-nowrap mt-0.5">
+                    Web Experience • <span className="text-red-400/95">ISE, APSCE</span>
+                  </span>
                 </p>
               </div>
-
-              {/* Compact GitHub Action Pill */}
-              <a
-                href="https://github.com/iamthanushgowdap"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group shrink-0 px-3.5 py-2 rounded-lg bg-red-950/60 hover:bg-red-900/70 border border-red-500/60 text-white text-xs font-medium tracking-wider uppercase transition-all flex items-center gap-1.5 shadow-[0_0_15px_rgba(255,20,30,0.25)]"
-              >
-                <span>GitHub</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-red-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
 
             </div>
           </div>
