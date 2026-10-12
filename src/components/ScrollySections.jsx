@@ -5,7 +5,6 @@ import {
 import BenguiatTitle from './BenguiatTitle';
 import CountdownClock from './CountdownClock';
 import AudioToggle from './AudioToggle';
-import EventRegistrationModal from './EventRegistrationModal';
 import { EVENTS_DATA } from '../data/eventsData';
 import { soundEngine } from '../utils/soundEngine';
 
@@ -17,14 +16,17 @@ export default function ScrollySections({
   isModelLoaded = false 
 }) {
   const [selectedDossier, setSelectedDossier] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalEventId, setModalEventId] = useState('01');
+  const [comingSoonEvent, setComingSoonEvent] = useState(null);
   const [isDevCardOpen, setIsDevCardOpen] = useState(false);
 
   const handleOpenRegistration = (eventId) => {
     soundEngine.playPortalGlitch();
-    setModalEventId(eventId || '01');
-    setIsModalOpen(true);
+    const targetEvent = EVENTS_DATA.find((e) => e.id === eventId) || EVENTS_DATA[0];
+    if (targetEvent?.registrationLink) {
+      window.open(targetEvent.registrationLink, '_blank', 'noopener,noreferrer');
+    } else {
+      setComingSoonEvent(targetEvent);
+    }
   };
 
   const handleOpenDossier = (event) => {
@@ -47,13 +49,35 @@ export default function ScrollySections({
 
   return (
     <div className="relative z-20 w-full text-white pointer-events-none select-none">
-      {/* 1. Official Registration Modal */}
-      <EventRegistrationModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        initialEventId={modalEventId}
-        events={EVENTS_DATA}
-      />
+      {/* 1. Coming Soon Popup (Shown when Register is clicked before Google Form links are added) */}
+      {comingSoonEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto animate-fadeIn font-sans">
+          <div
+            onClick={() => setComingSoonEvent(null)}
+            className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+          />
+          <div className="relative z-10 w-full max-w-xs sm:max-w-sm rounded-2xl border border-red-600/70 bg-gradient-to-b from-[#160106] via-[#090003] to-[#040002] p-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.95),0_0_40px_rgba(255,20,35,0.3)]">
+            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-red-950/80 border border-red-500/70 flex items-center justify-center shadow-[0_0_15px_rgba(255,20,30,0.4)]">
+              <Clock className="w-5 h-5 text-red-400" />
+            </div>
+            <span className="text-[10px] font-bold tracking-[0.28em] text-red-400 uppercase">
+              {comingSoonEvent.title}
+            </span>
+            <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wider mt-1">
+              COMING SOON
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Registration link for <span className="text-zinc-200 font-medium">{comingSoonEvent.title}</span> will open shortly.
+            </p>
+            <button
+              onClick={() => setComingSoonEvent(null)}
+              className="mt-5 w-full py-2.5 rounded-xl bg-red-700 hover:bg-red-600 text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] cursor-pointer"
+            >
+              Got It
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* 1B. Developer Profile Card Modal (Opens when clicking Developer Image/Card) */}
       {isDevCardOpen && (

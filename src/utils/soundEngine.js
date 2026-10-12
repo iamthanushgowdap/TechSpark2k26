@@ -1,5 +1,5 @@
 // Dedicated Audio Engine for Stranger Things Event
-// Volume: 15% (0.15)
+// Volume: 4% (0.04)
 // Continuous Loop: Plays from start to end, then repeats in an infinite loop when ON.
 // Scroll-Independent: Scrolling or not scrolling has zero effect on the audio loop.
 
@@ -9,13 +9,16 @@ class SoundEngine {
     this.audioInstance = null;
     this.isMuted = false; // ON by default
     this.hasUnlocked = false;
-    this.targetVolume = 0.15; // 15% volume as requested
+    this.targetVolume = 0.04; // 4% volume as requested
 
     if (typeof window !== 'undefined') {
-      this.getAudio();
+      const audio = this.getAudio();
+      if (audio) {
+        audio.volume = this.targetVolume;
+      }
 
       // Try starting immediately if browser permits
-      this.startLoop(true);
+      this.startLoop(false);
 
       // Unlock on first user interaction if browser blocked initial autoplay
       const unlockAudio = () => {
@@ -37,19 +40,39 @@ class SoundEngine {
   }
 
   getAudio() {
-    if (!this.audioInstance && typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return null;
+
+    // Reuse global singleton across HMR reloads so old audio never stays loud
+    if (window.__techsparkAudio) {
+      this.audioInstance = window.__techsparkAudio;
+      this.audioInstance.volume = this.targetVolume; // Strictly 4% (0.04)
+      this.audioInstance.loop = true;
+      return this.audioInstance;
+    }
+
+    if (!this.audioInstance) {
       this.audioInstance = new Audio(this.audioSrc);
-      this.audioInstance.volume = this.targetVolume; // 35% Volume
+      this.audioInstance.volume = this.targetVolume; // 4% Volume (0.04)
       this.audioInstance.loop = true; // Continuous start-to-end loop
       this.audioInstance.preload = 'auto';
+
+      // Enforce 4% volume on play/timeupdate
+      this.audioInstance.addEventListener('play', () => {
+        if (this.audioInstance) {
+          this.audioInstance.volume = this.targetVolume;
+        }
+      });
 
       // Explicit fallback listener to guarantee seamless start-to-end loop repetition
       this.audioInstance.addEventListener('ended', () => {
         if (!this.isMuted && this.audioInstance) {
+          this.audioInstance.volume = this.targetVolume;
           this.audioInstance.currentTime = 0;
           this.audioInstance.play().catch(() => {});
         }
       });
+
+      window.__techsparkAudio = this.audioInstance;
     }
     return this.audioInstance;
   }
@@ -62,7 +85,7 @@ class SoundEngine {
       const audio = this.getAudio();
       if (!audio) return;
 
-      audio.volume = this.targetVolume; // 35%
+      audio.volume = this.targetVolume; // 4% (0.04)
       audio.loop = true;
 
       if (resetToStart) {
@@ -82,7 +105,7 @@ class SoundEngine {
     }
   }
 
-  // Ensures the continuous loop is playing at 35% without interrupting it if already playing
+  // Ensures the continuous loop is playing at 4% without interrupting it if already playing
   playDemogorgonRoar() {
     if (this.isMuted) return;
     this.startLoop(false);
@@ -96,7 +119,7 @@ class SoundEngine {
       // Turn ON: Start from the beginning (0) to end and loop continuously
       this.isMuted = false;
       if (audio) {
-        audio.volume = this.targetVolume; // 35%
+        audio.volume = this.targetVolume; // 4% (0.04)
         audio.loop = true;
         audio.currentTime = 0;
         audio.play().catch((err) => {
