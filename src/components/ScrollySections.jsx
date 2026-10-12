@@ -206,7 +206,7 @@ export default function ScrollySections({
             {/* Card Footer Details (Below Image, Zero Overlay) */}
             <div className="relative z-10 text-center flex flex-col items-center">
               <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase mb-1.5">
-                HEAD OF DEPARTMENT — INFORMATION SCIENCE &amp; ENGINEERING
+                HEAD OF DEPARTMENT • INFORMATION SCIENCE &amp; ENGINEERING
               </span>
 
               <div className="inline-flex flex-col items-center">
@@ -216,8 +216,8 @@ export default function ScrollySections({
                 </h3>
               </div>
 
-              <p className="mt-3 text-xs sm:text-sm text-zinc-300 leading-relaxed text-center">
-                We respectfully acknowledge <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering. Under his capable leadership, the department has continued to uphold strong academic standards, foster a culture of curiosity and disciplined learning, and provide constant support for the overall growth of students. We sincerely thank him for his guidance and encouragement as we celebrate this year’s Freshers Day.
+              <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
+                We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
               </p>
             </div>
           </div>
@@ -586,7 +586,7 @@ export default function ScrollySections({
               {/* Right Column: Title, Role & Acknowledgement */}
               <div className="flex-1 flex flex-col items-start text-left min-w-0">
                 <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.26em] text-red-400 uppercase mb-1">
-                  HEAD OF DEPARTMENT — ISE
+                  HEAD OF DEPARTMENT • ISE
                 </span>
 
                 <div className="inline-flex flex-col items-start">
@@ -596,20 +596,20 @@ export default function ScrollySections({
                   </h3>
                 </div>
 
-                <p className="mt-1 text-[11px] xs:text-xs sm:text-xs text-red-400/95 font-medium leading-snug">
-                  Head of Department — Information Science &amp; Engineering
+                <p className="mt-1 text-[11px] xs:text-xs sm:text-xs text-red-400/95 font-normal leading-snug">
+                  Head of Department, Information Science &amp; Engineering
                 </p>
 
                 {/* Desktop Acknowledgement Paragraph */}
-                <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 leading-relaxed">
-                  We respectfully acknowledge <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering. Under his capable leadership, the department has continued to uphold strong academic standards, foster a culture of curiosity and disciplined learning, and provide constant support for the overall growth of students. We sincerely thank him for his guidance and encouragement as we celebrate this year’s Freshers Day.
+                <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 font-normal leading-relaxed">
+                  We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
                 </p>
               </div>
             </div>
 
             {/* Mobile Full-Width Acknowledgement Paragraph (Clean, Un-congested Line Wrapping on Phones) */}
-            <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 leading-relaxed text-left">
-              We respectfully acknowledge <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering. Under his capable leadership, the department has continued to uphold strong academic standards, foster a culture of curiosity and disciplined learning, and provide constant support for the overall growth of students. We sincerely thank him for his guidance and encouragement as we celebrate this year’s Freshers Day.
+            <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 font-normal leading-relaxed text-left">
+              We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
             </p>
           </div>
         </div>
