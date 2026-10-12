@@ -586,15 +586,76 @@ export default function ScrollySections({
             </button>
           </div>
 
-          {/* Prestige Festival Footer */}
-          <footer className="w-full border-t border-zinc-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
-            <div className="flex items-center gap-2">
-              <span className="text-white font-semibold font-benguiat text-sm tracking-wider">TECHSPARK 2K26</span>
-              <span className="text-zinc-600">•</span>
-              <span>Department of Information Science & Engineering</span>
+          {/* Prestige Festival Footer + Final Locked-Down Cinematic Video */}
+          <footer className="w-full border-t border-zinc-800/80 pt-6 flex flex-col gap-6">
+            <div className="w-full flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-2">
+              <div className="flex items-center gap-2">
+                <span className="text-white font-semibold font-benguiat text-sm tracking-wider">TECHSPARK 2K26</span>
+                <span className="text-zinc-600">•</span>
+                <span>Department of Information Science &amp; Engineering</span>
+              </div>
+              <div>
+                APS College of Engineering, Bengaluru • October 15, 2026
+              </div>
             </div>
-            <div>
-              APS College of Engineering, Bengaluru • October 15, 2026
+
+            {/* Final Footer Video: Muted, Loop, Zero Controls (No Fullscreen, Zoom, Pause, Skip, Long-Press, or Double-Tap) */}
+            <div
+              className="relative w-full max-w-3xl mx-auto rounded-2xl overflow-hidden border border-red-950/60 bg-black shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_35px_rgba(255,15,30,0.15)] select-none"
+              style={{
+                WebkitTouchCallout: 'none',
+                WebkitUserSelect: 'none',
+                userSelect: 'none',
+                touchAction: 'pan-y',
+              }}
+              onContextMenu={(e) => e.preventDefault()}
+              onDoubleClick={(e) => e.preventDefault()}
+            >
+              {/* Transparent Interaction Shield: Blocks tap, double-tap, long-press, zoom, and context menu while allowing vertical scroll */}
+              <div
+                className="absolute inset-0 z-20 select-none"
+                style={{
+                  WebkitTouchCallout: 'none',
+                  WebkitUserSelect: 'none',
+                  userSelect: 'none',
+                  touchAction: 'pan-y',
+                }}
+                onContextMenu={(e) => e.preventDefault()}
+                onDoubleClick={(e) => e.preventDefault()}
+                onClick={(e) => e.preventDefault()}
+              />
+
+              <video
+                ref={(el) => {
+                  if (el) {
+                    el.defaultMuted = true;
+                    el.muted = true;
+                  }
+                }}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                controls={false}
+                disablePictureInPicture
+                disableRemotePlayback
+                controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
+                tabIndex={-1}
+                aria-hidden="true"
+                onContextMenu={(e) => e.preventDefault()}
+                onPause={(e) => {
+                  e.currentTarget.play().catch(() => {});
+                }}
+                onVolumeChange={(e) => {
+                  e.currentTarget.muted = true;
+                  e.currentTarget.volume = 0;
+                }}
+                className="w-full aspect-video object-cover pointer-events-none select-none block"
+              >
+                <source src="/assets/APSCE_THINGS_VID.webm" type="video/webm" />
+                <source src="/assets/APSCE_THINGS_VID.mp4" type="video/mp4" />
+              </video>
             </div>
           </footer>
         </div>
