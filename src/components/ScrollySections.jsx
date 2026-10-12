@@ -175,15 +175,15 @@ export default function ScrollySections({
               {/* Event Specs Strip (Clean hairline dividers instead of nested boxes) */}
               <div className="grid grid-cols-3 gap-4 py-4 border-y border-zinc-800/80 text-xs">
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Squad Size</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Team Size</div>
                   <div className="font-semibold text-white">{selectedDossier.teamSize}</div>
                 </div>
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Location</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Venue</div>
                   <div className="font-semibold text-white">{selectedDossier.venue}</div>
                 </div>
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Time Slot</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Timing</div>
                   <div className="font-semibold text-white">{selectedDossier.timing}</div>
                 </div>
               </div>
@@ -191,7 +191,7 @@ export default function ScrollySections({
               {/* Prize Pool Callout */}
               <div className="flex items-center justify-between py-2">
                 <div>
-                  <div className="text-xs text-zinc-400 uppercase tracking-wider">Total Cash Prize Pool</div>
+                  <div className="text-xs text-zinc-400 uppercase tracking-wider">Total Cash Prize</div>
                   <div className="font-benguiat text-2xl sm:text-3xl font-bold text-amber-400 mt-0.5">
                     {selectedDossier.prizePool}
                   </div>
@@ -202,20 +202,20 @@ export default function ScrollySections({
                 </div>
               </div>
 
-              {/* Mission Directive / Briefing */}
+              {/* About the Event */}
               <div>
                 <h3 className="text-xs font-bold tracking-wider text-red-400 uppercase mb-2">
-                  Mission Directive
+                  About the Event
                 </h3>
                 <p className="text-sm text-zinc-300 leading-relaxed font-normal">
                   {selectedDossier.missionBrief}
                 </p>
               </div>
 
-              {/* Prize Distribution */}
+              {/* Prizes & Rewards */}
               <div>
                 <h3 className="text-xs font-bold tracking-wider text-red-400 uppercase mb-3">
-                  Prize Distribution
+                  Prizes &amp; Rewards
                 </h3>
                 <div className="space-y-2.5">
                   {selectedDossier.rewards.map((reward, idx) => (
@@ -227,10 +227,10 @@ export default function ScrollySections({
                 </div>
               </div>
 
-              {/* Rules & Guidelines (Clean numbered points with generous breathing room) */}
+              {/* Rules & Guidelines */}
               <div>
                 <h3 className="text-xs font-bold tracking-wider text-red-400 uppercase mb-3">
-                  Rules & Protocols
+                  Rules &amp; Guidelines
                 </h3>
                 <div className="space-y-3">
                   {selectedDossier.rules.map((rule, idx) => (
@@ -243,7 +243,7 @@ export default function ScrollySections({
               </div>
             </div>
 
-            {/* Dossier Bottom Action Bar */}
+            {/* Bottom Action Bar */}
             <div className="p-5 sm:p-6 border-t border-zinc-800/80 bg-[#090003] flex items-center justify-between gap-4">
               <button
                 onClick={() => setSelectedDossier(null)}
@@ -304,7 +304,7 @@ export default function ScrollySections({
 
           <div className="flex flex-col items-center justify-center gap-1 text-zinc-400 font-sans text-xs tracking-wider">
             <span className="text-red-400 animate-pulse text-[11px] sm:text-xs tracking-widest uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-              Scroll down to enter the upside down
+              Scroll down to explore events
             </span>
             <ChevronRight className="w-4 h-4 text-red-500 rotate-90 animate-bounce" />
           </div>
@@ -312,11 +312,11 @@ export default function ScrollySections({
       </section>
 
       {/* =========================================================================
-          CHAPTER 2: THE FOUR ARENAS (Grand Netflix-Style Editorial Grid)
+          CHAPTER 2: THE FOUR EVENTS (Compact Cards on Mobile, Full Poster Cards on Laptop)
           ========================================================================= */}
       <section 
         id="chapter-2"
-        className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-10 my-12 sm:my-20"
+        className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-10 my-10 sm:my-20"
       >
         <div className="w-full max-w-7xl flex flex-col lg:flex-row items-stretch gap-6 sm:gap-10 pointer-events-auto">
           
@@ -327,16 +327,16 @@ export default function ScrollySections({
             </span>
 
             <div className="vertical-editorial-text font-benguiat text-4xl xl:text-5xl font-black text-red-600/30 tracking-widest my-8">
-              ( SEC. 002 )
+              ( EVENTS )
             </div>
 
             <div className="vertical-editorial-text text-[11px] text-zinc-500 tracking-widest uppercase font-sans">
-              This World • The Other Side
+              TechSpark 2K26 • ISE
             </div>
           </div>
 
           {/* Main Grid Content Area */}
-          <div className="flex-1 flex flex-col gap-6 sm:gap-8 font-sans">
+          <div className="flex-1 flex flex-col gap-5 sm:gap-8 font-sans">
             
             {/* Editorial Header - Clean, Human-Designed Hierarchy */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-5">
@@ -345,7 +345,7 @@ export default function ScrollySections({
                   CHOOSE YOUR EXPEDITION
                 </h2>
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 font-normal">
-                  Four flagship competitive arenas. Over <span className="text-amber-400 font-semibold font-benguiat">₹57,000</span> in cash prize bounties.
+                  Four exciting college events. Over <span className="text-amber-400 font-semibold font-benguiat">₹57,000</span> in total cash prizes.
                 </p>
               </div>
 
@@ -355,43 +355,47 @@ export default function ScrollySections({
               </div>
             </div>
 
-            {/* 4 Large Netflix-Style Poster Cards */}
+            {/* 4 Event Cards:
+                - Mobile (< sm): Compact detail card (no background image, no top category text, keeps 01-04 red outlined number at top-right)
+                - Laptop/Tablet (sm+): Full 440px poster card with background image and top category label */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {EVENTS_DATA.map((evt) => (
                 <div
                   key={evt.id}
                   onClick={() => handleOpenDossier(evt)}
-                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-[440px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-gradient-to-br from-[#120105]/95 via-[#080003]/95 to-[#040002]/95 sm:bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-0 sm:min-h-[440px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
                 >
-                  {/* Poster Background Image with Vignette */}
+                  {/* Poster Background Image with Vignette — Shown ONLY on Laptop/Tablet (sm+), Hidden on Mobile */}
                   <img
                     src={evt.image}
                     alt={evt.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-65 group-hover:scale-108 transition-all duration-700"
+                    className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-65 group-hover:scale-108 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
 
-                  {/* Top Card Info Bar */}
-                  <div className="relative p-4 sm:p-5 flex items-start justify-between z-10">
-                    <span className="text-xs font-semibold text-red-400 tracking-wider uppercase font-sans">
+                  {/* Top Card Info Bar:
+                      - On Mobile: Floating top-right for 01, 02, 03, 04 (no category text, no top empty space)
+                      - On Laptop (sm+): Full top bar with category on left and 01-04 on right */}
+                  <div className="absolute top-4 right-5 sm:static sm:p-5 flex items-start justify-end sm:justify-between z-10 pointer-events-none">
+                    <span className="hidden sm:inline-block text-xs font-semibold text-red-400 tracking-wider uppercase font-sans">
                       {evt.category}
                     </span>
 
-                    {/* Giant Red Glowing Number (01, 02, 03, 04) */}
-                    <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all">
+                    {/* Giant Red Glowing Number (01, 02, 03, 04) — Same Style Everywhere */}
+                    <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all leading-none">
                       {evt.code}
                     </span>
                   </div>
 
-                  {/* Bottom Card Content */}
+                  {/* Card Details Content (Fills card compactly on Mobile; sits at bottom on Laptop) */}
                   <div className="relative p-5 sm:p-6 z-10 flex flex-col gap-2">
-                    {/* Bounty Badge */}
-                    <div className="text-amber-400 font-sans text-sm font-bold">
+                    {/* Prize Badge */}
+                    <div className="text-amber-400 font-sans text-sm font-bold pr-14 sm:pr-0">
                       {evt.prizePool}
                     </div>
 
                     {/* Event Title */}
-                    <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-red-200 transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                    <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-red-200 transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] pr-12 sm:pr-0">
                       {evt.title}
                     </h3>
 
@@ -415,7 +419,7 @@ export default function ScrollySections({
                         }}
                         className="flex-1 py-2 px-3 rounded-lg bg-black/60 hover:bg-red-950/70 border border-zinc-800 hover:border-red-800 text-zinc-300 hover:text-white text-xs font-medium transition-all"
                       >
-                        Dossier
+                        View Details
                       </button>
 
                       <button
@@ -425,7 +429,7 @@ export default function ScrollySections({
                         }}
                         className="py-2 px-3.5 rounded-lg bg-red-700 hover:bg-red-600 text-white text-xs font-semibold transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] flex items-center gap-1"
                       >
-                        <span>Enlist</span>
+                        <span>Register</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
@@ -436,7 +440,7 @@ export default function ScrollySections({
 
             {/* Subtext */}
             <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
-              <span>Select any arena card to view complete directives and prize breakdown.</span>
+              <span>Tap any event card to view complete rules, timings, and prize details.</span>
               <span className="text-red-400 font-medium">October 15, 2026</span>
             </div>
           </div>
@@ -521,7 +525,7 @@ export default function ScrollySections({
           </h2>
           
           <p className="text-sm sm:text-base text-zinc-400 mt-3 max-w-2xl font-normal leading-relaxed">
-            The annual inter-collegiate tech symposium presented by Department of Information Science & Engineering, APSCE.
+            The annual inter-college tech &amp; gaming fest by the Department of Information Science &amp; Engineering, APSCE.
           </p>
         </div>
 
@@ -544,7 +548,7 @@ export default function ScrollySections({
               <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_10px_#ff1e27] group-hover:animate-ping flex-shrink-0" />
               
               <span className="drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
-                EXPLORE THE 4 ARENAS
+                VIEW ALL 4 EVENTS
               </span>
               
               <ChevronRight className="w-4 h-4 text-red-400 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 flex-shrink-0" />

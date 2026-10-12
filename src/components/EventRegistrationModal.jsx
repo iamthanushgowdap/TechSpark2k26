@@ -70,7 +70,7 @@ export default function EventRegistrationModal({
             </div>
             <div>
               <div className="text-sm font-bold text-white font-benguiat tracking-wider">
-                TechSpark 2k26 Delegate Registration
+                TechSpark 2K26 Event Registration
               </div>
               <div className="text-xs text-zinc-400">
                 Department of ISE • APS College of Engineering • October 15, 2026
@@ -94,7 +94,7 @@ export default function EventRegistrationModal({
               {/* Event Selector Tabs */}
               <div>
                 <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
-                  Select Arena
+                  Select Event
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {events.map((evt) => (
@@ -111,7 +111,7 @@ export default function EventRegistrationModal({
                       }`}
                     >
                       <div className="text-[10px] text-red-400 font-semibold tracking-wider">
-                        SEC-{evt.id}
+                        EVENT {evt.id}
                       </div>
                       <div className="text-xs font-bold truncate mt-0.5 font-benguiat text-white">
                         {evt.title}
@@ -121,7 +121,7 @@ export default function EventRegistrationModal({
                 </div>
               </div>
 
-              {/* Event Quick Intelligence Banner */}
+              {/* Event Quick Info Banner */}
               <div className="p-3 rounded-xl bg-red-950/30 border border-red-900/40 flex items-center justify-between text-xs">
                 <div>
                   <span className="text-zinc-400">Selected: </span>
@@ -193,7 +193,7 @@ export default function EventRegistrationModal({
                   </div>
                   <div>
                     <label className="block text-xs text-zinc-300 font-medium mb-1.5">
-                      Squad Size
+                      Team Size
                     </label>
                     <select
                       value={form.teamSize}
@@ -203,8 +203,8 @@ export default function EventRegistrationModal({
                       <option value="1">1 Member (Solo)</option>
                       <option value="2">2 Members (Duo)</option>
                       <option value="3">3 Members (Trio)</option>
-                      <option value="4">4 Members (Full Squad)</option>
-                      <option value="6">6-8 Members (Cricket Roster)</option>
+                      <option value="4">4 Members (Team)</option>
+                      <option value="6">6-8 Members (Cricket Team)</option>
                     </select>
                   </div>
                 </div>
@@ -220,7 +220,7 @@ export default function EventRegistrationModal({
               </button>
             </form>
           ) : (
-            /* Digital Survival Pass Clearance Display */
+            /* Digital Pass Display */
             <div className="flex flex-col items-center text-center space-y-4 animate-fadeIn">
               <div className="w-14 h-14 rounded-full bg-red-950/80 border-2 border-red-500 flex items-center justify-center shadow-[0_0_25px_rgba(255,20,30,0.7)] animate-bounce">
                 <CheckCircle2 className="w-8 h-8 text-red-400" />
@@ -228,18 +228,18 @@ export default function EventRegistrationModal({
 
               <div>
                 <span className="text-xs text-red-400 font-semibold tracking-wider uppercase">
-                  Clearance Confirmed
+                  Registration Confirmed
                 </span>
                 <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide mt-1">
-                  TechSpark 2k26 Survival Pass
+                  TechSpark 2K26 Entry Pass
                 </h3>
               </div>
 
-              {/* Digital Holographic Ticket Card */}
+              {/* Digital Ticket Card */}
               <div className="w-full p-5 rounded-2xl bg-black/80 border border-zinc-800 shadow-[0_0_30px_rgba(255,20,30,0.3)] text-left relative overflow-hidden">
                 <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5 mb-3">
                   <div className="text-xs font-bold text-white font-benguiat">
-                    TechSpark 2k26 • Dept of ISE
+                    TechSpark 2K26 • Dept of ISE
                   </div>
                   <div className="text-xs bg-red-950 px-2.5 py-1 rounded-md text-amber-300 font-mono font-bold border border-red-800">
                     {passCode}
@@ -281,7 +281,7 @@ export default function EventRegistrationModal({
                 </button>
                 <button
                   type="button"
-                  onClick={() => alert(`Survival Pass ${passCode} saved! Keep this confirmation for entry on October 15th.`)}
+                  onClick={() => alert(`Entry Pass ${passCode} saved! Keep this confirmation for entry on October 15th.`)}
                   className="flex-1 py-3 rounded-xl bg-red-800 hover:bg-red-700 text-white text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(255,20,30,0.5)] cursor-pointer"
                 >
                   <Ticket className="w-4 h-4" />

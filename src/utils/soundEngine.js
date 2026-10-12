@@ -1,5 +1,5 @@
 // Dedicated Audio Engine for Stranger Things Event
-// Volume: 35% (0.35)
+// Volume: 15% (0.15)
 // Continuous Loop: Plays from start to end, then repeats in an infinite loop when ON.
 // Scroll-Independent: Scrolling or not scrolling has zero effect on the audio loop.
 
@@ -9,7 +9,7 @@ class SoundEngine {
     this.audioInstance = null;
     this.isMuted = false; // ON by default
     this.hasUnlocked = false;
-    this.targetVolume = 0.35; // 35% volume as requested
+    this.targetVolume = 0.15; // 15% volume as requested
 
     if (typeof window !== 'undefined') {
       this.getAudio();
