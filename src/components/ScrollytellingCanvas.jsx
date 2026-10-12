@@ -291,9 +291,9 @@ export default function ScrollytellingCanvas({
         // Leaping jump animation (pounce)
         switchAction('pounce', true); // play jump leap once
         hasRoaredRef.current = false;
-      } else if (p < 0.70) {
-        // CHAPTER 2: THE FOUR ARENAS
-        // "It should not be visible in the second section."
+      } else if (p < 0.80) {
+        // CHAPTER 2 & DEVELOPER SPOTLIGHT SECTION
+        // Keep 3D model hidden so it never overlays Chapter 2 or the Developer Spotlight
         if (modelRef.current) modelRef.current.visible = false;
 
         // Stop the jump animation so it never stays stuck in the jumping stage

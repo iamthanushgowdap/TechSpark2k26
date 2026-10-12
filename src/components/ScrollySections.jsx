@@ -368,6 +368,142 @@ export default function ScrollySections({
       </section>
 
       {/* =========================================================================
+          DEVELOPER SPOTLIGHT: THE ARCHITECT OF THE RIFT (Thanush Gowda P)
+          Placed after Chapter 2 and before Chapter 3 — Non-overlaid split stage
+          ========================================================================= */}
+      <section 
+        id="developer-spotlight"
+        className="relative min-h-[85vh] w-full flex items-center justify-center p-4 sm:p-10 my-12 sm:my-24"
+      >
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row items-stretch gap-6 sm:gap-10 pointer-events-auto">
+          
+          {/* Left Vertical Editorial Spine (Matches Chapter 2 Editorial Continuity) */}
+          <div className="hidden lg:flex flex-col justify-between items-center py-4 border-r border-red-950/80 pr-6 select-none">
+            <span className="text-xs text-red-500 font-semibold tracking-widest font-sans">
+              CREATOR
+            </span>
+
+            <div className="vertical-editorial-text font-benguiat text-4xl xl:text-5xl font-black text-red-600/30 tracking-widest my-8">
+              ( DEV. 001 )
+            </div>
+
+            <div className="vertical-editorial-text text-[11px] text-zinc-500 tracking-widest uppercase font-sans">
+              Designed • Engineered
+            </div>
+          </div>
+
+          {/* Main Non-Overlaid Split Editorial Stage */}
+          <div className="flex-1 flex flex-col justify-center font-sans">
+            <div className="relative rounded-3xl border border-red-900/50 bg-gradient-to-br from-[#120105]/90 via-[#080003]/95 to-[#040002]/95 backdrop-blur-xl p-6 sm:p-10 md:p-12 shadow-[0_20px_70px_rgba(0,0,0,0.9),0_0_50px_rgba(255,15,30,0.18)] overflow-hidden">
+              
+              {/* Ambient Corner Rift Glows (Behind Content) */}
+              <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-red-700/15 blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 items-center">
+                
+                {/* LEFT COLUMN: Dedicated Unobstructed Portrait Stage (/assets/img.png) */}
+                <div className="lg:col-span-5 flex flex-col items-center justify-center">
+                  <div className="relative group w-64 xs:w-72 sm:w-80 lg:w-full max-w-[340px]">
+                    
+                    {/* Rotating Crimson Portal Aura Ring Behind Portrait */}
+                    <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-red-600/40 via-transparent to-red-500/40 opacity-75 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
+
+                    {/* Offset Architectural Crimson Wireframe Backing */}
+                    <div className="absolute inset-0 rounded-2xl border border-red-500/50 translate-x-3 translate-y-3 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform duration-500 pointer-events-none" />
+
+                    {/* Corner Stranger Things Framing Brackets (Outside Portrait) */}
+                    <div className="absolute -top-2.5 -left-2.5 w-6 h-6 border-t-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+                    <div className="absolute -top-2.5 -right-2.5 w-6 h-6 border-t-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+                    <div className="absolute -bottom-2.5 -left-2.5 w-6 h-6 border-b-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+                    <div className="absolute -bottom-2.5 -right-2.5 w-6 h-6 border-b-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+
+                    {/* Pure Unobstructed Portrait Frame (Zero Text Overlay, 1:1 Square Match) */}
+                    <div className="relative aspect-square w-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_15px_40px_rgba(0,0,0,0.95),0_0_30px_rgba(255,20,35,0.35)]">
+                      <img
+                        src="/assets/img.png"
+                        alt="Thanush Gowda P - Website Developer"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                      />
+                      {/* Subtle cinematic edge rim light without covering the photo */}
+                      <div className="absolute inset-0 ring-1 ring-inset ring-red-500/30 rounded-2xl pointer-events-none" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* RIGHT COLUMN: Editorial Typography & Craft Breakdown (Beside Portrait) */}
+                <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
+                  
+                  {/* Top Kicker */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-red-400 shadow-[0_0_10px_#ff1e27]" />
+                    <span className="font-sans text-[11px] sm:text-xs font-bold tracking-[0.36em] text-red-400 uppercase">
+                      ARCHITECT OF THE RIFT • WEBSITE DEVELOPER
+                    </span>
+                    <span className="w-8 sm:w-12 h-[2px] bg-gradient-to-l from-transparent via-red-600 to-red-400 shadow-[0_0_10px_#ff1e27] lg:hidden" />
+                  </div>
+
+                  {/* Stranger Things Top Framing Bar + Developer Name */}
+                  <div className="inline-flex flex-col items-center lg:items-start">
+                    <div className="w-full h-[2px] bg-gradient-to-r from-red-500 via-red-400 to-transparent shadow-[0_0_12px_#ff1e27] mb-1.5" />
+                    <h2 className="font-stranger-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-white uppercase tracking-wider leading-none scale-y-105">
+                      THANUSH GOWDA P
+                    </h2>
+                  </div>
+
+                  {/* Role & Department */}
+                  <div className="mt-4 flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-sm sm:text-base text-zinc-200 font-semibold">
+                    <span className="text-white">Lead Creative Developer &amp; UI/3D Engineer</span>
+                    <span className="hidden sm:inline text-red-500">•</span>
+                    <span className="text-red-400 font-medium">Dept. of ISE, APSCE</span>
+                  </div>
+
+                  {/* Editorial Narrative */}
+                  <p className="mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed max-w-2xl font-normal">
+                    Designed and engineered the complete <span className="text-white font-medium">TechSpark 2K26: Upside Down</span> digital experience—combining real-time 3D WebGL Demogorgon choreography, custom portal particle physics, and an interactive Netflix-grade editorial interface.
+                  </p>
+
+                  {/* 3-Column Editorial Craft Strip (Clean Hairline Dividers) */}
+                  <div className="w-full grid grid-cols-3 gap-4 py-5 my-6 border-y border-zinc-800/90 text-left">
+                    <div>
+                      <div className="font-benguiat text-lg sm:text-xl font-bold text-red-500">01</div>
+                      <div className="text-xs sm:text-sm font-semibold text-white mt-0.5">3D WebGL Engine</div>
+                      <div className="text-[11px] text-zinc-400 mt-0.5 hidden sm:block">Real-time skeletal rig &amp; scroll camera</div>
+                    </div>
+                    <div className="border-l border-zinc-800/80 pl-4">
+                      <div className="font-benguiat text-lg sm:text-xl font-bold text-red-500">02</div>
+                      <div className="text-xs sm:text-sm font-semibold text-white mt-0.5">Visual Direction</div>
+                      <div className="text-[11px] text-zinc-400 mt-0.5 hidden sm:block">Stranger Things portal &amp; typography</div>
+                    </div>
+                    <div className="border-l border-zinc-800/80 pl-4">
+                      <div className="font-benguiat text-lg sm:text-xl font-bold text-red-500">03</div>
+                      <div className="text-xs sm:text-sm font-semibold text-white mt-0.5">Full-Stack Craft</div>
+                      <div className="text-[11px] text-zinc-400 mt-0.5 hidden sm:block">Interactive dossiers &amp; live pass system</div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Interactive Links */}
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <a
+                      href="https://github.com/iamthanushgowdap"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative px-6 py-3 rounded-xl bg-gradient-to-r from-red-950/90 via-[#220206] to-red-950/90 hover:from-red-800 hover:to-red-900 border border-red-500/80 text-white font-benguiat text-xs sm:text-sm tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(255,20,30,0.45)] hover:shadow-[0_0_40px_rgba(255,30,40,0.8)] flex items-center gap-2.5 active:scale-95"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse" />
+                      <span>GitHub • @iamthanushgowdap</span>
+                      <ArrowUpRight className="w-4 h-4 text-red-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           CHAPTER 3: SURVIVAL FINALE (Cinematic Netflix-Style Closing Stage)
           ========================================================================= */}
       <section className="relative min-h-screen w-full flex flex-col justify-between items-center p-4 sm:p-12 text-center pointer-events-none">
