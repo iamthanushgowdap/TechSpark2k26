@@ -203,7 +203,7 @@ export default function ScrollySections({
               <div className="w-full h-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(255,20,35,0.3)]">
                 <img
                   src="/assets/HOD_ISE.jpeg"
-                  alt="Dr. B. N. Mithun - Head of Department, ISE"
+                  alt="Dr. Mithun B N - Head of Department, ISE"
                   className="w-full h-full object-cover object-[center_18%]"
                 />
               </div>
@@ -218,12 +218,12 @@ export default function ScrollySections({
               <div className="inline-flex flex-col items-center">
                 <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-red-500 to-transparent shadow-[0_0_8px_#ff1e27] mb-1.5" />
                 <h3 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider leading-none">
-                  DR. B. N. MITHUN
+                  DR. MITHUN B N
                 </h3>
               </div>
 
               <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
-                We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
+                We sincerely thank <span className="text-white font-semibold">Dr. Mithun B N</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
               </p>
             </div>
           </div>
@@ -366,19 +366,21 @@ export default function ScrollySections({
                 </div>
               </div>
 
-              {/* Prize Pool Callout */}
-              <div className="flex items-center justify-between py-2">
-                <div>
-                  <div className="text-xs text-zinc-400 uppercase tracking-wider">Total Cash Prize</div>
-                  <div className="font-benguiat text-2xl sm:text-3xl font-bold text-amber-400 mt-0.5">
-                    {selectedDossier.prizePool}
+              {/* Prize Pool Callout (Only shown if event has a prizePool) */}
+              {selectedDossier.prizePool && (
+                <div className="flex items-center justify-between py-2">
+                  <div>
+                    <div className="text-xs text-zinc-400 uppercase tracking-wider">Cash Prize</div>
+                    <div className="font-benguiat text-2xl sm:text-3xl font-bold text-amber-400 mt-0.5">
+                      {selectedDossier.prizePool}
+                    </div>
+                  </div>
+                  <div className="text-right text-xs text-zinc-400">
+                    <div>October 15, 2026</div>
+                    <div className="text-red-400 font-medium">{selectedDossier.venue}</div>
                   </div>
                 </div>
-                <div className="text-right text-xs text-zinc-400">
-                  <div>October 15, 2026</div>
-                  <div className="text-red-400 font-medium">APSCE Campus</div>
-                </div>
-              </div>
+              )}
 
               {/* About the Event */}
               <div>
@@ -390,20 +392,22 @@ export default function ScrollySections({
                 </p>
               </div>
 
-              {/* Prizes & Rewards */}
-              <div>
-                <h3 className="text-xs font-bold tracking-wider text-red-400 uppercase mb-3">
-                  Prizes &amp; Rewards
-                </h3>
-                <div className="space-y-2.5">
-                  {selectedDossier.rewards.map((reward, idx) => (
-                    <div key={idx} className="flex items-start gap-3 text-sm text-zinc-300">
-                      <span className="text-amber-400 font-bold">★</span>
-                      <span>{reward}</span>
-                    </div>
-                  ))}
+              {/* Prizes & Rewards (Only shown if event has rewards defined) */}
+              {selectedDossier.rewards && selectedDossier.rewards.length > 0 && (
+                <div>
+                  <h3 className="text-xs font-bold tracking-wider text-red-400 uppercase mb-3">
+                    Prizes &amp; Rewards
+                  </h3>
+                  <div className="space-y-2.5">
+                    {selectedDossier.rewards.map((reward, idx) => (
+                      <div key={idx} className="flex items-start gap-3 text-sm text-zinc-300">
+                        <span className="text-amber-400 font-bold">★</span>
+                        <span>{reward}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Rules & Guidelines */}
               <div>
@@ -523,7 +527,7 @@ export default function ScrollySections({
                   CHOOSE YOUR EXPEDITION
                 </h2>
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 font-normal">
-                  Four exciting college events. Over <span className="text-amber-400 font-semibold font-benguiat">₹57,000</span> in total cash prizes.
+                  Four flagship department events. Register your squad and battle for victory.
                 </p>
               </div>
 
@@ -567,10 +571,12 @@ export default function ScrollySections({
 
                   {/* Card Details Content (Fills card compactly on Mobile; sits at bottom on Laptop) */}
                   <div className="relative p-5 sm:p-6 z-10 flex flex-col gap-2">
-                    {/* Prize Badge */}
-                    <div className="text-amber-400 font-sans text-sm font-bold pr-14 sm:pr-0">
-                      {evt.prizePool}
-                    </div>
+                    {/* Prize Badge (Shown only if prizePool exists) */}
+                    {evt.prizePool && (
+                      <div className="text-amber-400 font-sans text-sm font-bold pr-14 sm:pr-0">
+                        {evt.prizePool}
+                      </div>
+                    )}
 
                     {/* Event Title */}
                     <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-red-200 transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] pr-12 sm:pr-0">
@@ -618,7 +624,7 @@ export default function ScrollySections({
 
             {/* Subtext */}
             <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
-              <span>Tap any event card to view complete rules, timings, and prize details.</span>
+              <span>Tap any event card to view complete rules, timings, and event details.</span>
               <span className="text-red-400 font-medium">October 15, 2026</span>
             </div>
           </div>
@@ -626,14 +632,14 @@ export default function ScrollySections({
       </section>
 
       {/* =========================================================================
-          HOD ACKNOWLEDGEMENT & DEVELOPER CREDIT (Dr. B. N. Mithun above Thanush Gowda P)
+          HOD ACKNOWLEDGEMENT & DEVELOPER CREDIT (Dr. Mithun B N above Thanush Gowda P)
           Placed after Chapter 2 and before Chapter 3 — Horizontal on mobile & desktop
           ========================================================================= */}
       <section 
         id="developer-spotlight"
         className="relative w-full flex flex-col items-center justify-center gap-5 sm:gap-7 px-3 sm:px-4 py-6 sm:py-10 my-4 sm:my-8"
       >
-        {/* 1. HOD ACKNOWLEDGEMENT CARD (Dr. B. N. Mithun — Above Developer Card) */}
+        {/* 1. HOD ACKNOWLEDGEMENT CARD (Dr. Mithun B N — Above Developer Card) */}
         <div className="w-full max-w-2xl pointer-events-auto font-sans">
           <div
             onClick={handleOpenHodCard}
@@ -656,7 +662,7 @@ export default function ScrollySections({
                 <div className="relative w-full h-full rounded-xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_0_20px_rgba(255,20,35,0.3)]">
                   <img
                     src="/assets/HOD_ISE.jpeg"
-                    alt="Dr. B. N. Mithun - Head of Department, ISE"
+                    alt="Dr. Mithun B N - Head of Department, ISE"
                     className="w-full h-full object-cover object-[center_18%] group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -671,7 +677,7 @@ export default function ScrollySections({
                 <div className="inline-flex flex-col items-start">
                   <div className="w-full h-[1.5px] bg-gradient-to-r from-red-500 via-red-400 to-transparent shadow-[0_0_8px_#ff1e27] mb-1" />
                   <h3 className="font-stranger-title text-[17px] xs:text-lg sm:text-2xl text-white uppercase tracking-wider leading-none whitespace-nowrap">
-                    DR. B. N. MITHUN
+                    DR. MITHUN B N
                   </h3>
                 </div>
 
@@ -681,14 +687,14 @@ export default function ScrollySections({
 
                 {/* Desktop Acknowledgement Paragraph */}
                 <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 font-normal leading-relaxed">
-                  We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
+                  We sincerely thank <span className="text-white font-semibold">Dr. Mithun B N</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
                 </p>
               </div>
             </div>
 
             {/* Mobile Full-Width Acknowledgement Paragraph (Clean, Un-congested Line Wrapping on Phones) */}
             <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 font-normal leading-relaxed text-left">
-              We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
+              We sincerely thank <span className="text-white font-semibold">Dr. Mithun B N</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
             </p>
           </div>
         </div>

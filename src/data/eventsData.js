@@ -11,7 +11,7 @@ export const EVENTS_DATA = [
     date: 'OCTOBER 15, 2026',
     timing: '10:30 AM - 01:00 PM',
     teamSize: '2 - 4 MEMBERS',
-    prizePool: '₹12,000 PRIZE',
+    prizePool: '',
     registrationLink: '', // Google Form link will be added here
     threatLevel: 'LEVEL IV',
     summary: 'An exciting campus-wide treasure hunt where teams solve riddles, hidden clues, and puzzles.',
@@ -22,11 +22,7 @@ export const EVENTS_DATA = [
       'Damaging college property or hiding clues from other teams leads to disqualification.',
       'The first team to solve all clues and reach the final destination wins.'
     ],
-    rewards: [
-      '1st Prize: ₹7,000 Cash + Winner Trophy + Certificates',
-      '2nd Prize: ₹5,000 Cash + Runner-up Certificates',
-      'Participation certificates for all registered teams'
-    ]
+    rewards: []
   },
   {
     id: '02',
@@ -40,7 +36,7 @@ export const EVENTS_DATA = [
     date: 'OCTOBER 15, 2026',
     timing: '11:00 AM - 04:00 PM',
     teamSize: '4 MEMBERS (SQUAD)',
-    prizePool: '₹20,000 PRIZE',
+    prizePool: '',
     registrationLink: '', // Google Form link will be added here
     threatLevel: 'LEVEL V',
     summary: 'Action-packed multiplayer gaming tournament for 4-player squads.',
@@ -51,11 +47,7 @@ export const EVENTS_DATA = [
       'Teams must report to the venue 30 minutes before their match time.',
       'The referees and event coordinators decision will be final.'
     ],
-    rewards: [
-      '1st Prize: ₹12,000 Cash + Championship Trophy + Winner Medals',
-      '2nd Prize: ₹8,000 Cash + Runner-up Medals + Certificates',
-      'Special MVP Prize for the top player of the finals'
-    ]
+    rewards: []
   },
   {
     id: '03',
@@ -69,7 +61,7 @@ export const EVENTS_DATA = [
     date: 'OCTOBER 15, 2026',
     timing: '10:00 AM - 03:30 PM',
     teamSize: '2 - 3 MEMBERS',
-    prizePool: '₹10,000 PRIZE',
+    prizePool: '',
     registrationLink: '', // Google Form link will be added here
     threatLevel: 'LEVEL V',
     summary: 'A thrilling 30-minute real-life room escape challenge filled with locks, codes, and puzzles.',
@@ -80,11 +72,7 @@ export const EVENTS_DATA = [
       'Use brainpower and logic only—do not force locks or props.',
       'Up to 2 hints can be requested from the game master (with a small time penalty).'
     ],
-    rewards: [
-      '1st Prize: ₹6,000 Cash + Winner Trophy + Certificates',
-      '2nd Prize: ₹4,000 Cash + Runner-up Certificates',
-      'Participation certificates for all teams'
-    ]
+    rewards: []
   },
   {
     id: '04',
@@ -98,7 +86,7 @@ export const EVENTS_DATA = [
     date: 'OCTOBER 15, 2026',
     timing: '09:30 AM ONWARDS',
     teamSize: '6 + 2 PLAYERS',
-    prizePool: '₹15,000 PRIZE',
+    prizePool: '₹?,??? (4 DIGITS)',
     registrationLink: '', // Google Form link will be added here
     threatLevel: 'LEVEL III',
     summary: 'Fast-paced 6-over box cricket knockout tournament.',
@@ -110,8 +98,8 @@ export const EVENTS_DATA = [
       'Knockout format; tied matches will be decided by a 1-over Super Over.'
     ],
     rewards: [
-      '1st Prize: ₹10,000 Cash + TechSpark Cricket Trophy',
-      '2nd Prize: ₹5,000 Cash + Runner-up Trophy',
+      '1st Prize: Exciting 4-Digit Cash Prize (To Be Revealed) + Championship Trophy',
+      'Runner-Up: TechSpark Cricket Runner-Up Trophy & Honors',
       'Player of the Tournament & Best Bowler Awards'
     ]
   }
