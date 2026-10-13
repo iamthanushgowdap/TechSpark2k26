@@ -223,7 +223,7 @@ export default function ScrollySections({
               </div>
 
               <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
-                We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
+                We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
               </p>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function ScrollySections({
               </div>
 
               <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
-                We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
+                We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator, for his continuous guidance, encouragement, and support in coordinating TechSpark 2K26 and mentoring our students.
               </p>
             </div>
           </div>
@@ -681,14 +681,14 @@ export default function ScrollySections({
 
                 {/* Desktop Acknowledgement Paragraph */}
                 <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 font-normal leading-relaxed">
-                  We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
+                  We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
                 </p>
               </div>
             </div>
 
             {/* Mobile Full-Width Acknowledgement Paragraph (Clean, Un-congested Line Wrapping on Phones) */}
             <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 font-normal leading-relaxed text-left">
-              We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
+              We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and leadership in bringing TechSpark 2K26 to life. His guidance inspires students to explore new ideas, build technical skills, and achieve excellence.
             </p>
           </div>
         </div>
@@ -745,14 +745,14 @@ export default function ScrollySections({
 
                 {/* Desktop Acknowledgement Paragraph */}
                 <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 font-normal leading-relaxed">
-                  We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
+                  We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator, for his continuous guidance, encouragement, and support in coordinating TechSpark 2K26 and mentoring our students.
                 </p>
               </div>
             </div>
 
             {/* Mobile Full-Width Acknowledgement Paragraph (Clean, Un-congested Line Wrapping on Phones) */}
             <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 font-normal leading-relaxed text-left">
-              We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
+              We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator, for his continuous guidance, encouragement, and support in coordinating TechSpark 2K26 and mentoring our students.
             </p>
           </div>
         </div>
