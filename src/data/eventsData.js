@@ -13,7 +13,7 @@ export const EVENTS_DATA = [
     teamSize: '6 + 2 PLAYERS',
     prizePool: '₹?,??? (4 DIGITS)',
     registrationLink: '', // Google Form link will be added here
-    brochureUrl: '/assets/CRICKET_RULES.pdf',
+    brochureUrl: '/assets/Cricket_event.pdf',
     threatLevel: 'LEVEL III',
     summary: 'Fast-paced 6-over box cricket knockout tournament.',
     missionBrief: 'Step onto the turf for fast-paced 6-over box cricket matches! Score quick runs, take sharp catches off the nets, and battle through knockout rounds to win the TechSpark Cricket Championship.',
@@ -43,7 +43,7 @@ export const EVENTS_DATA = [
     teamSize: '2 - 4 MEMBERS',
     prizePool: '',
     registrationLink: '', // Google Form link will be added here
-    brochureUrl: '/assets/TREASURE_HUNT_RULES.pdf',
+    brochureUrl: '/assets/TH_event.pdf',
     threatLevel: 'LEVEL IV',
     summary: 'An exciting campus-wide treasure hunt where teams solve riddles, hidden clues, and puzzles.',
     missionBrief: 'Race across the APSCE campus to solve mystery clues, decode secret messages, and unlock hidden checkpoints. Work together with your team, follow the trail of hints, and be the first team to find the final treasure before time runs out!',
@@ -69,7 +69,7 @@ export const EVENTS_DATA = [
     teamSize: '2 - 3 MEMBERS',
     prizePool: '',
     registrationLink: '', // Google Form link will be added here
-    brochureUrl: '/assets/ESCAPE_ROOM_RULES.pdf',
+    brochureUrl: '', // Will be mapped once uploaded
     threatLevel: 'LEVEL V',
     summary: 'A thrilling 30-minute real-life room escape challenge filled with locks, codes, and puzzles.',
     missionBrief: 'Your team is locked inside a themed mystery room with a 30-minute countdown timer! Search the room for hidden objects, crack number locks, solve brain-teasers, and find the final key to escape in the fastest time.',
@@ -95,7 +95,7 @@ export const EVENTS_DATA = [
     teamSize: '4 MEMBERS (SQUAD)',
     prizePool: '',
     registrationLink: '', // Google Form link will be added here
-    brochureUrl: '/assets/BATTLE_FIELD_RULES.pdf',
+    brochureUrl: '/assets/BATTLEFILELD_event.pdf',
     threatLevel: 'LEVEL V',
     summary: 'Action-packed multiplayer gaming tournament for 4-player squads.',
     missionBrief: 'Compete against top college squads in custom tournament lobbies. Team up with your 4-player squad, plan your strategy, and outplay rival teams across intense knockout rounds to claim the championship title.',
