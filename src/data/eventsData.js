@@ -11,8 +11,8 @@ export const EVENTS_DATA = [
     date: 'OCTOBER 15, 2026',
     timing: '09:30 AM ONWARDS',
     teamSize: '6 + 2 PLAYERS',
-    prizePool: '₹?,??? (4 DIGITS)',
-    registrationLink: '', // Google Form link will be added here
+    prizePool: '₹X,XXX',
+    registrationLink: 'https://tally.so/r/D4r9NZ',
     brochureUrl: '/assets/Cricket_event.pdf',
     threatLevel: 'LEVEL III',
     summary: 'Fast-paced 6-over box cricket knockout tournament.',
@@ -24,7 +24,7 @@ export const EVENTS_DATA = [
       'Knockout format; tied matches will be decided by a 1-over Super Over.'
     ],
     rewards: [
-      '1st Prize: Exciting 4-Digit Cash Prize (To Be Revealed) + Championship Trophy',
+      '1st Prize: Exciting Cash Prize (₹X,XXX) + Championship Trophy',
       'Runner-Up: TechSpark Cricket Runner-Up Trophy & Honors',
       'Player of the Tournament & Best Bowler Awards'
     ]
@@ -42,7 +42,7 @@ export const EVENTS_DATA = [
     timing: '10:30 AM - 01:00 PM',
     teamSize: '2 - 4 MEMBERS',
     prizePool: '',
-    registrationLink: '', // Google Form link will be added here
+    registrationLink: 'https://tally.so/r/WOGDbL',
     brochureUrl: '/assets/TH_event.pdf',
     threatLevel: 'LEVEL IV',
     summary: 'An exciting campus-wide treasure hunt where teams solve riddles, hidden clues, and puzzles.',
@@ -68,7 +68,7 @@ export const EVENTS_DATA = [
     timing: '10:00 AM - 03:30 PM',
     teamSize: '2 - 3 MEMBERS',
     prizePool: '',
-    registrationLink: '', // Google Form link will be added here
+    registrationLink: '', // Registration link will be added once provided
     brochureUrl: '', // Will be mapped once uploaded
     threatLevel: 'LEVEL V',
     summary: 'A thrilling 30-minute real-life room escape challenge filled with locks, codes, and puzzles.',
@@ -94,7 +94,7 @@ export const EVENTS_DATA = [
     timing: '11:00 AM - 04:00 PM',
     teamSize: '4 MEMBERS (SQUAD)',
     prizePool: '',
-    registrationLink: '', // Google Form link will be added here
+    registrationLink: 'https://tally.so/r/PdMW1V',
     brochureUrl: '/assets/BATTLEFILELD_event.pdf',
     threatLevel: 'LEVEL V',
     summary: 'Action-packed multiplayer gaming tournament for 4-player squads.',
