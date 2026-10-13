@@ -92,6 +92,7 @@ export default function ScrollySections({
       )}
 
       {/* 1B. Developer Profile Card Modal (Opens when clicking Developer Image/Card) */}
+      {/* 1B. Developer Profile Card Modal (Opens when clicking Developer Image/Card) */}
       {isDevCardOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto animate-fadeIn font-sans">
           {/* Backdrop */}
@@ -101,61 +102,70 @@ export default function ScrollySections({
           />
 
           {/* Popup Developer Card */}
-          <div className="relative z-10 w-full max-w-xs sm:max-w-sm rounded-3xl border border-red-600/70 bg-gradient-to-b from-[#160106] via-[#090003] to-[#040002] p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(255,20,35,0.3)] overflow-hidden">
-            {/* Ambient Crimson Glow */}
-            <div className="absolute -top-16 -left-16 w-44 h-44 rounded-full bg-red-600/20 blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
+          <div className="relative z-10 w-full max-w-xs sm:max-w-sm rounded-3xl p-[1.5px] bg-gradient-to-r from-red-600 via-purple-600 to-cyan-400 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(6,182,212,0.35)] overflow-hidden">
+            <div className="relative rounded-[22.5px] bg-gradient-to-b from-[#12010c] via-[#070112] to-[#020c15] p-5 sm:p-6 overflow-hidden">
+              {/* Ambient Cyber Glows */}
+              <div className="absolute -top-16 -left-16 w-44 h-44 rounded-full bg-red-600/20 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full bg-cyan-400/20 blur-3xl pointer-events-none" />
 
-            {/* Top Header Row + Close Button */}
-            <div className="relative z-10 flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse" />
-                <span className="text-[10px] font-bold tracking-[0.28em] text-red-400 uppercase">
-                  CREATOR ID • 001
+              {/* Top Header Row + Close Button */}
+              <div className="relative z-10 flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee] animate-pulse" />
+                  <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-cyan-300 uppercase">
+                    SYSTEM ARCHITECT • ID 001
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsDevCardOpen(false)}
+                  className="w-8 h-8 rounded-full border border-zinc-800 bg-zinc-900/80 hover:border-cyan-500/60 hover:bg-cyan-950/50 flex items-center justify-center text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                  aria-label="Close developer card"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Cyber Portrait Frame with Dual Gradient Ring */}
+              <div className="relative mx-auto w-48 sm:w-56 aspect-square mb-5">
+                <div className="absolute -top-1.5 -left-1.5 w-4 h-4 border-t-2 border-l-2 border-cyan-400 shadow-[0_0_10px_#22d3ee] pointer-events-none z-20" />
+                <div className="absolute -top-1.5 -right-1.5 w-4 h-4 border-t-2 border-r-2 border-purple-400 shadow-[0_0_10px_#c084fc] pointer-events-none z-20" />
+                <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 border-b-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+                <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 border-b-2 border-r-2 border-cyan-400 shadow-[0_0_10px_#22d3ee] pointer-events-none z-20" />
+
+                <div className="w-full h-full rounded-2xl p-[2px] bg-gradient-to-br from-cyan-400 via-purple-500 to-red-500 shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(6,182,212,0.3)] overflow-hidden">
+                  <img
+                    src="/assets/img.png"
+                    alt="Thanush Gowda P - Website Developer"
+                    className="w-full h-full object-cover object-center rounded-[14px]"
+                  />
+                </div>
+              </div>
+
+              {/* Card Footer Details */}
+              <div className="relative z-10 text-center flex flex-col items-center">
+                <span className="text-[10px] font-mono font-bold tracking-[0.25em] text-cyan-300 uppercase mb-1.5">
+                  LEAD WEB ARCHITECT &amp; ENGINEER
                 </span>
+
+                <div className="inline-flex flex-col items-center">
+                  <div className="w-full h-[1.5px] bg-gradient-to-r from-cyan-400 via-purple-400 to-red-500 shadow-[0_0_10px_#22d3ee] mb-1.5" />
+                  <h3 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider leading-none">
+                    THANUSH GOWDA P
+                  </h3>
+                </div>
+
+                <p className="mt-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed text-center">
+                  Designed &amp; Engineered the complete <span className="text-white font-semibold">TechSpark 2K26</span> 3D WebGL &amp; Scrollytelling Experience • <span className="text-cyan-400 font-medium">Department of ISE, APSCE</span>
+                </p>
+
+                {/* Tech Chips */}
+                <div className="flex flex-wrap justify-center gap-1.5 mt-3 pt-3 border-t border-zinc-800/80 w-full">
+                  <span className="px-2 py-0.5 rounded-md bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 text-[10px] font-mono">React 19</span>
+                  <span className="px-2 py-0.5 rounded-md bg-purple-950/80 border border-purple-500/40 text-purple-300 text-[10px] font-mono">Three.js 3D</span>
+                  <span className="px-2 py-0.5 rounded-md bg-red-950/80 border border-red-500/40 text-red-300 text-[10px] font-mono">Tailwind v4</span>
+                  <span className="px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-700 text-zinc-300 text-[10px] font-mono">Web Audio</span>
+                </div>
               </div>
-              <button
-                onClick={() => setIsDevCardOpen(false)}
-                className="w-8 h-8 rounded-full border border-zinc-800 bg-zinc-900/80 hover:border-red-500/60 hover:bg-red-950/50 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
-                aria-label="Close developer card"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Unobstructed Full Square Portrait Frame */}
-            <div className="relative mx-auto w-full aspect-square mb-5">
-              <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border-t-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
-              <div className="absolute -top-1.5 -right-1.5 w-5 h-5 border-t-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
-              <div className="absolute -bottom-1.5 -left-1.5 w-5 h-5 border-b-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
-              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 border-b-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
-
-              <div className="w-full h-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(255,20,35,0.3)]">
-                <img
-                  src="/assets/img.png"
-                  alt="Thanush Gowda P - Website Developer"
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
-            </div>
-
-            {/* Card Footer Details (Below Image, Zero Overlay) */}
-            <div className="relative z-10 text-center flex flex-col items-center">
-              <span className="text-[10px] font-bold tracking-[0.3em] text-red-400 uppercase mb-1.5">
-                WEBSITE DEVELOPER
-              </span>
-
-              <div className="inline-flex flex-col items-center">
-                <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-red-500 to-transparent shadow-[0_0_8px_#ff1e27] mb-1.5" />
-                <h3 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider leading-none">
-                  THANUSH GOWDA P
-                </h3>
-              </div>
-
-              <p className="mt-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                <span className="block">Designed &amp; Engineered the <span className="text-white font-semibold">TechSpark 2K26</span></span>
-                <span className="block mt-0.5">Web Experience • <span className="text-red-400 font-medium">ISE, APSCE</span></span>
-              </p>
             </div>
           </div>
         </div>
@@ -794,60 +804,79 @@ export default function ScrollySections({
           </div>
         </div>
 
-        {/* 3. DEVELOPER CREDIT CARD (Thanush Gowda P — Below Coordinator Card) */}
-        <div className="w-fit max-w-full pointer-events-auto font-sans">
+        {/* 3. DEVELOPER CREDIT CARD (Thanush Gowda P — Unique Cyber-Terminal Architect Design) */}
+        <div className="w-full max-w-2xl pointer-events-auto font-sans">
           <div
             onClick={handleOpenDevCard}
             role="button"
             tabIndex={0}
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleOpenDevCard(); }}
-            className="group relative rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#120105]/95 via-[#090003]/95 to-[#120105]/95 backdrop-blur-xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-[0_12px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(255,15,30,0.18)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_40px_rgba(255,20,35,0.35)] transition-all duration-300 cursor-pointer overflow-hidden"
+            className="group relative p-[1.5px] rounded-2xl bg-gradient-to-r from-red-600/70 via-purple-600/70 to-cyan-400/80 hover:from-red-500 hover:via-purple-500 hover:to-cyan-300 shadow-[0_15px_45px_rgba(0,0,0,0.9),0_0_30px_rgba(6,182,212,0.2)] hover:shadow-[0_20px_55px_rgba(0,0,0,0.95),0_0_40px_rgba(6,182,212,0.45)] transition-all duration-400 cursor-pointer overflow-hidden"
           >
-            {/* Subtle Ambient Rift Glow */}
-            <div className="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-red-600/15 blur-2xl pointer-events-none" />
+            {/* Inner Cyber-Glass Canvas */}
+            <div className="relative rounded-[14.5px] bg-gradient-to-r from-[#0e0208]/98 via-[#06000c]/98 to-[#020b14]/98 backdrop-blur-2xl px-4 py-3.5 sm:px-6 sm:py-5 overflow-hidden">
+              {/* Dual Ambient Glows (Crimson Left, Electric Cyan Right) */}
+              <div className="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-red-600/20 blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -right-12 w-36 h-36 rounded-full bg-cyan-400/20 blur-2xl pointer-events-none" />
 
-            <div className="relative z-10 flex flex-row items-center gap-3.5 sm:gap-6">
-              
-              {/* Unobstructed Portrait Frame (Zero Text Overlay, 1:1 Square, Clickable) */}
-              <div className="relative shrink-0 w-20 h-20 xs:w-22 xs:h-22 sm:w-28 sm:h-28">
-                {/* Corner Crimson Brackets */}
-                <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
-                <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
-                <div className="absolute -bottom-1.5 -left-1.5 w-3.5 h-3.5 border-b-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
-                <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+              <div className="relative z-10 flex flex-row items-center gap-3.5 sm:gap-6">
+                {/* Cyber Portrait Frame with Dual Gradient Ring */}
+                <div className="relative shrink-0 w-20 h-20 xs:w-22 xs:h-22 sm:w-28 sm:h-28">
+                  {/* Cyber Corner Ticks */}
+                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-cyan-400 shadow-[0_0_8px_#22d3ee] pointer-events-none z-20" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-purple-400 shadow-[0_0_8px_#c084fc] pointer-events-none z-20" />
+                  <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-cyan-400 shadow-[0_0_8px_#22d3ee] pointer-events-none z-20" />
 
-                <div className="relative w-full h-full rounded-xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_0_20px_rgba(255,20,35,0.3)]">
-                  <img
-                    src="/assets/img.png"
-                    alt="Thanush Gowda P - Website Developer"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-
-              {/* Compact Credit Info Beside Photo (Always Left-Aligned on Phone & Desktop) */}
-              <div className="flex flex-col items-start text-left min-w-0">
-                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.26em] sm:tracking-[0.3em] text-red-400 uppercase mb-1">
-                  WEBSITE DEVELOPER
-                </span>
-
-                <div className="inline-flex flex-col items-start">
-                  <div className="w-full h-[1.5px] bg-gradient-to-r from-red-500 via-red-400 to-transparent shadow-[0_0_8px_#ff1e27] mb-1" />
-                  <h3 className="font-stranger-title text-[17px] xs:text-lg sm:text-2xl text-white uppercase tracking-wider leading-none whitespace-nowrap">
-                    THANUSH GOWDA P
-                  </h3>
+                  <div className="relative w-full h-full rounded-xl p-[2px] bg-gradient-to-br from-cyan-400 via-purple-500 to-red-500 shadow-[0_0_20px_rgba(6,182,212,0.35)] overflow-hidden">
+                    <img
+                      src="/assets/img.png"
+                      alt="Thanush Gowda P - System Architect & Lead Developer"
+                      className="w-full h-full object-cover object-center rounded-[10px] group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
 
-                <p className="mt-1.5 text-[11px] xs:text-xs sm:text-sm text-zinc-400 leading-snug">
-                  <span className="block whitespace-nowrap">
-                    Designed &amp; Engineered the <span className="text-zinc-200 font-semibold">TechSpark 2K26</span>
-                  </span>
-                  <span className="block whitespace-nowrap mt-0.5">
-                    Web Experience • <span className="text-red-400/95">ISE, APSCE</span>
-                  </span>
-                </p>
-              </div>
+                {/* Developer Telemetry & Info */}
+                <div className="flex-1 flex flex-col items-start text-left min-w-0">
+                  {/* Status Indicator Pill */}
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/50 text-[8.5px] sm:text-[9.5px] font-mono font-bold tracking-wider text-cyan-300 uppercase shadow-[0_0_10px_rgba(6,182,212,0.25)]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      SYSTEM ARCHITECT &amp; DEV
+                    </span>
+                    <span className="hidden sm:inline text-[9px] font-mono text-zinc-500 tracking-wider">
+                      CREATOR ID • 001
+                    </span>
+                  </div>
 
+                  {/* Name with Chromatic Gradient Underline */}
+                  <div className="inline-flex flex-col items-start">
+                    <div className="w-full h-[1.5px] bg-gradient-to-r from-cyan-400 via-purple-400 to-red-500 shadow-[0_0_10px_#22d3ee] mb-1" />
+                    <h3 className="font-stranger-title text-[18px] xs:text-xl sm:text-2xl text-white uppercase tracking-wider leading-none whitespace-nowrap">
+                      THANUSH GOWDA P
+                    </h3>
+                  </div>
+
+                  <p className="mt-1 text-[11px] xs:text-xs text-zinc-300 leading-snug">
+                    Designed &amp; Engineered the <span className="text-white font-semibold">TechSpark 2K26</span> Web Platform • <span className="text-cyan-400 font-medium">ISE, APSCE</span>
+                  </p>
+
+                  {/* Tech Stack Pills */}
+                  <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                    <span className="px-2 py-0.5 rounded-md bg-cyan-950/70 border border-cyan-500/40 text-cyan-300 text-[9.5px] font-mono font-medium">React 19</span>
+                    <span className="px-2 py-0.5 rounded-md bg-purple-950/70 border border-purple-500/40 text-purple-300 text-[9.5px] font-mono font-medium">Three.js 3D</span>
+                    <span className="px-2 py-0.5 rounded-md bg-red-950/70 border border-red-500/40 text-red-300 text-[9.5px] font-mono font-medium">Tailwind v4</span>
+                    <span className="hidden xs:inline px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-700 text-zinc-300 text-[9.5px] font-mono font-medium">Web Audio</span>
+                  </div>
+                </div>
+
+                {/* Right Arrow / Profile Pill */}
+                <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-cyan-500/40 bg-cyan-950/40 text-cyan-300 group-hover:bg-cyan-500 group-hover:text-black transition-all text-xs font-mono shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                  <span>Dossier</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ export const EVENTS_DATA = [
     id: '01',
     code: '01',
     secCode: '( EVENT 01 )',
-    title: 'CRICKET',
+    title: 'BOX CRICKET',
     tagline: 'BOX CRICKET TOURNAMENT',
     category: '4-OVER BOX CRICKET',
     image: '/assets/blood-moon.jpg',
