@@ -19,6 +19,7 @@ export default function ScrollySections({
   const [comingSoonEvent, setComingSoonEvent] = useState(null);
   const [isDevCardOpen, setIsDevCardOpen] = useState(false);
   const [isHodCardOpen, setIsHodCardOpen] = useState(false);
+  const [isCoordinatorCardOpen, setIsCoordinatorCardOpen] = useState(false);
 
   const handleOpenRegistration = (eventId) => {
     soundEngine.playPortalGlitch();
@@ -43,6 +44,11 @@ export default function ScrollySections({
   const handleOpenHodCard = () => {
     soundEngine.playPortalGlitch();
     setIsHodCardOpen(true);
+  };
+
+  const handleOpenCoordinatorCard = () => {
+    soundEngine.playPortalGlitch();
+    setIsCoordinatorCardOpen(true);
   };
 
   const scrollToChapter2 = () => {
@@ -218,6 +224,79 @@ export default function ScrollySections({
 
               <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
                 We sincerely thank <span className="text-white font-semibold">Dr. B. N. Mithun</span>, Head of the Department of Information Science and Engineering, for his constant encouragement and support in bringing TechSpark 2K26 to life. His leadership inspires students to explore new ideas, build technical skills, and come together to organize events of this scale. We are grateful for his guidance and vision for our department.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 1D. Department Forum Coordinator Profile & Acknowledgement Modal (Opens when clicking Coordinator Card) */}
+      {isCoordinatorCardOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto animate-fadeIn font-sans">
+          {/* Backdrop */}
+          <div
+            onClick={() => setIsCoordinatorCardOpen(false)}
+            className="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
+          />
+
+          {/* Popup Coordinator Card */}
+          <div className="relative z-10 w-full max-w-sm sm:max-w-md max-h-[90vh] overflow-y-auto rounded-3xl border border-red-600/70 bg-gradient-to-b from-[#160106] via-[#090003] to-[#040002] p-5 sm:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.95),0_0_50px_rgba(255,20,35,0.3)]">
+            {/* Ambient Crimson Glow */}
+            <div className="absolute -top-16 -left-16 w-44 h-44 rounded-full bg-red-600/20 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full bg-red-600/15 blur-3xl pointer-events-none" />
+
+            {/* Top Header Row + Close Button */}
+            <div className="relative z-10 flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse" />
+                <span className="text-[10px] font-bold tracking-[0.25em] text-red-400 uppercase">
+                  FORUM COORDINATOR • ISE
+                </span>
+              </div>
+              <button
+                onClick={() => setIsCoordinatorCardOpen(false)}
+                className="w-8 h-8 rounded-full border border-zinc-800 bg-zinc-900/80 hover:border-red-500/60 hover:bg-red-950/50 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                aria-label="Close Coordinator card"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Unobstructed Portrait Frame */}
+            <div className="relative mx-auto w-56 sm:w-64 aspect-square mb-5">
+              <div className="absolute -top-1.5 -left-1.5 w-5 h-5 border-t-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -top-1.5 -right-1.5 w-5 h-5 border-t-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-5 h-5 border-b-2 border-l-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 border-b-2 border-r-2 border-red-500 shadow-[0_0_10px_#ff1e27] pointer-events-none z-20" />
+
+              <div className="w-full h-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(255,20,35,0.3)]">
+                <img
+                  src="/assets/FORUM_COORDINATOR_ISE.jpeg"
+                  alt="Prof. Lohithkumar J K - Department Forum Coordinator, ISE"
+                  className="w-full h-full object-cover object-top"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = '/assets/HOD_ISE.jpeg';
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Card Footer Details */}
+            <div className="relative z-10 text-center flex flex-col items-center">
+              <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase mb-1.5">
+                DEPARTMENT FORUM COORDINATOR • INFORMATION SCIENCE &amp; ENGINEERING
+              </span>
+
+              <div className="inline-flex flex-col items-center">
+                <div className="w-full h-[1.5px] bg-gradient-to-r from-transparent via-red-500 to-transparent shadow-[0_0_8px_#ff1e27] mb-1.5" />
+                <h3 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider leading-none">
+                  PROF. LOHITHKUMAR J K
+                </h3>
+              </div>
+
+              <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed text-center">
+                We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
               </p>
             </div>
           </div>
@@ -614,7 +693,71 @@ export default function ScrollySections({
           </div>
         </div>
 
-        {/* 2. DEVELOPER CREDIT CARD (Thanush Gowda P — Below HOD Card) */}
+        {/* 2. DEPARTMENT FORUM COORDINATOR CARD (Prof. Lohithkumar J K — Above Developer Card) */}
+        <div className="w-full max-w-2xl pointer-events-auto font-sans">
+          <div
+            onClick={handleOpenCoordinatorCard}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleOpenCoordinatorCard(); }}
+            className="group relative rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#140105]/95 via-[#080003]/95 to-[#140105]/95 backdrop-blur-xl px-4 py-3.5 sm:px-6 sm:py-5 shadow-[0_12px_40px_rgba(0,0,0,0.9),0_0_30px_rgba(255,15,30,0.18)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.95),0_0_40px_rgba(255,20,35,0.35)] transition-all duration-300 cursor-pointer overflow-hidden"
+          >
+            {/* Subtle Ambient Rift Glow */}
+            <div className="absolute -top-12 -left-12 w-36 h-36 rounded-full bg-red-600/15 blur-2xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-row items-center gap-3.5 sm:gap-6">
+              {/* Unobstructed Portrait Frame (Zero Text Overlay, 1:1 Square, Clickable) */}
+              <div className="relative shrink-0 w-20 h-20 xs:w-22 xs:h-22 sm:w-28 sm:h-28">
+                <div className="absolute -top-1.5 -left-1.5 w-3.5 h-3.5 border-t-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+                <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 border-t-2 border-r-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+                <div className="absolute -bottom-1.5 -left-1.5 w-3.5 h-3.5 border-b-2 border-l-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+                <div className="absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 border-b-2 border-r-2 border-red-500 shadow-[0_0_8px_#ff1e27] pointer-events-none z-20" />
+
+                <div className="relative w-full h-full rounded-xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_0_20px_rgba(255,20,35,0.3)]">
+                  <img
+                    src="/assets/FORUM_COORDINATOR_ISE.jpeg"
+                    alt="Prof. Lohithkumar J K - Department Forum Coordinator, ISE"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = '/assets/HOD_ISE.jpeg';
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Right Column: Title, Role & Acknowledgement */}
+              <div className="flex-1 flex flex-col items-start text-left min-w-0">
+                <span className="text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.26em] text-red-400 uppercase mb-1">
+                  DEPARTMENT FORUM COORDINATOR • ISE
+                </span>
+
+                <div className="inline-flex flex-col items-start">
+                  <div className="w-full h-[1.5px] bg-gradient-to-r from-red-500 via-red-400 to-transparent shadow-[0_0_8px_#ff1e27] mb-1" />
+                  <h3 className="font-stranger-title text-[17px] xs:text-lg sm:text-2xl text-white uppercase tracking-wider leading-none whitespace-nowrap">
+                    PROF. LOHITHKUMAR J K
+                  </h3>
+                </div>
+
+                <p className="mt-1 text-[11px] xs:text-xs sm:text-xs text-red-400/95 font-normal leading-snug">
+                  Department Forum Coordinator, Information Science &amp; Engineering
+                </p>
+
+                {/* Desktop Acknowledgement Paragraph */}
+                <p className="hidden sm:block mt-2 text-xs sm:text-[13px] text-zinc-300 font-normal leading-relaxed">
+                  We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
+                </p>
+              </div>
+            </div>
+
+            {/* Mobile Full-Width Acknowledgement Paragraph (Clean, Un-congested Line Wrapping on Phones) */}
+            <p className="sm:hidden relative z-10 mt-3 pt-3 border-t border-red-950/60 text-[11.5px] text-zinc-300 font-normal leading-relaxed text-left">
+              We sincerely thank <span className="text-white font-semibold">Prof. Lohithkumar J K</span>, Department Forum Coordinator of Information Science and Engineering, for his dedicated leadership, continuous support, and guidance in coordinating TechSpark 2K26. His encouragement and active mentorship have been instrumental in empowering students to organize and execute this symposium with passion and technical excellence.
+            </p>
+          </div>
+        </div>
+
+        {/* 3. DEVELOPER CREDIT CARD (Thanush Gowda P — Below Coordinator Card) */}
         <div className="w-fit max-w-full pointer-events-auto font-sans">
           <div
             onClick={handleOpenDevCard}
