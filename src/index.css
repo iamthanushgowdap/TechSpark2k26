@@ -243,3 +243,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ff1e27;
 }
+
+/* Hawkins Lab Laser Scanner Animation for Classified ID Badges */
+@keyframes laserScan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+.animate-laser-scan {
+  animation: laserScan 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
