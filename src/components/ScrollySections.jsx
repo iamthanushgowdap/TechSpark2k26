@@ -271,12 +271,12 @@ export default function ScrollySections({
 
               <div className="w-full h-full rounded-2xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_12px_35px_rgba(0,0,0,0.95),0_0_25px_rgba(255,20,35,0.3)]">
                 <img
-                  src="/assets/FORUM_COORDINATOR_ISE.jpeg"
+                  src="/assets/Lohith.jpeg"
                   alt="Prof. Lohithkumar J K - Department Forum Coordinator, ISE"
                   className="w-full h-full object-cover object-top"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = '/assets/HOD_ISE.jpeg';
+                    e.currentTarget.src = '/assets/FORUM_COORDINATOR_ISE.jpeg';
                   }}
                 />
               </div>
@@ -753,12 +753,12 @@ export default function ScrollySections({
 
                 <div className="relative w-full h-full rounded-xl overflow-hidden border border-red-600/80 bg-[#0a0104] shadow-[0_0_20px_rgba(255,20,35,0.3)]">
                   <img
-                    src="/assets/FORUM_COORDINATOR_ISE.jpeg"
+                    src="/assets/Lohith.jpeg"
                     alt="Prof. Lohithkumar J K - Department Forum Coordinator, ISE"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     onError={(e) => {
                       e.currentTarget.onerror = null;
-                      e.currentTarget.src = '/assets/HOD_ISE.jpeg';
+                      e.currentTarget.src = '/assets/FORUM_COORDINATOR_ISE.jpeg';
                     }}
                   />
                 </div>
