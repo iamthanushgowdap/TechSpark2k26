@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Shield, Award, Compass, Download, FileText, Phone
+  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Shield, Award, Compass, Download, FileText
 } from 'lucide-react';
 import BenguiatTitle from './BenguiatTitle';
 import CountdownClock from './CountdownClock';
@@ -474,7 +474,7 @@ export default function ScrollySections({
                           </h4>
                         </div>
                         <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-red-950/90 text-red-300 border border-red-800/60 uppercase">
-                          Direct Chat
+                          WhatsApp
                         </span>
                       </div>
 
@@ -482,14 +482,14 @@ export default function ScrollySections({
                         {selectedDossier.coordinators.map((coord, idx) => (
                           <div 
                             key={idx}
-                            className="flex items-center justify-between p-2.5 sm:p-3 rounded-lg bg-black/70 border border-zinc-800/90 hover:border-emerald-500/70 transition-all group/coord"
+                            className="flex items-center justify-between p-3 rounded-xl bg-black/70 border border-zinc-800/90 hover:border-red-500/70 transition-all group/coord"
                           >
-                            <div className="min-w-0 pr-2">
+                            <div className="min-w-0 pr-3">
                               <div className="text-xs font-semibold text-white truncate">
                                 {coord.name}
                               </div>
                               <div className="text-[11px] text-zinc-400 truncate mt-0.5">
-                                {coord.role} • <a href={`tel:${coord.phone}`} className="text-zinc-300 hover:text-white underline decoration-zinc-700">{coord.phone}</a>
+                                {coord.role} • Department of ISE
                               </div>
                             </div>
 
@@ -497,11 +497,11 @@ export default function ScrollySections({
                               href={`https://wa.me/${coord.cleanPhone || coord.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hi ${coord.name}, I have a query regarding ${selectedDossier.title} at TechSpark 2K26.`)}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="shrink-0 px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.35)] transition-all cursor-pointer active:scale-95"
+                              aria-label={`Chat with ${coord.name} on WhatsApp`}
                               title={`Chat with ${coord.name} on WhatsApp`}
+                              className="shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-red-600 via-red-700 to-red-900 hover:from-red-500 hover:to-red-700 border border-red-500/80 text-white flex items-center justify-center shadow-[0_0_14px_rgba(255,20,35,0.4)] hover:shadow-[0_0_22px_rgba(255,20,35,0.7)] hover:scale-108 active:scale-95 transition-all cursor-pointer"
                             >
-                              <WhatsAppIcon className="w-3.5 h-3.5" />
-                              <span>WhatsApp</span>
+                              <WhatsAppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]" />
                             </a>
                           </div>
                         ))}
@@ -835,7 +835,7 @@ export default function ScrollySections({
                 <div
                   key={evt.id}
                   onClick={() => handleOpenDossier(evt)}
-                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-gradient-to-br from-[#120105]/95 via-[#080003]/95 to-[#040002]/95 sm:bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-0 sm:min-h-[460px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-gradient-to-br from-[#120105]/95 via-[#080003]/95 to-[#040002]/95 sm:bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-0 sm:min-h-[440px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
                 >
                   {/* Poster Background Image with Vignette */}
                   <img
@@ -904,24 +904,6 @@ export default function ScrollySections({
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
-
-                    {/* For queries, contact event coordinators with direct WhatsApp button */}
-                    <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-sans">
-                      <span className="text-[11px] text-zinc-400 truncate">
-                        For queries, contact coordinators
-                      </span>
-                      <a
-                        href={`https://wa.me/${(evt.coordinators?.[0]?.cleanPhone || '919876543210')}?text=${encodeURIComponent(`Hi ${evt.coordinators?.[0]?.name || 'Coordinator'}, I have a query regarding ${evt.title} at TechSpark 2K26.`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-600/60 hover:border-emerald-500 text-emerald-300 hover:text-white text-[11px] font-semibold transition-all shadow-[0_0_10px_rgba(16,185,129,0.25)] shrink-0"
-                        title={`WhatsApp ${evt.title} Coordinator`}
-                      >
-                        <WhatsAppIcon className="w-3 h-3 text-emerald-400" />
-                        <span>WhatsApp</span>
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -959,56 +941,34 @@ export default function ScrollySections({
                 {FEST_COORDINATORS.map((coord, idx) => (
                   <div
                     key={idx}
-                    className="relative group rounded-2xl border border-red-900/50 hover:border-emerald-600/80 bg-gradient-to-r from-[#140105]/95 via-[#080003]/95 to-[#140105]/95 backdrop-blur-xl p-5 sm:p-6 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_12px_45px_rgba(16,185,129,0.2)] transition-all duration-300 overflow-hidden flex flex-col justify-between gap-4"
+                    className="relative group rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#140105]/95 via-[#080003]/95 to-[#140105]/95 backdrop-blur-xl p-4 sm:p-5 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_12px_45px_rgba(255,20,35,0.25)] transition-all duration-300 overflow-hidden flex items-center justify-between gap-4"
                   >
                     {/* Ambient Glow */}
-                    <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-red-600/10 group-hover:bg-emerald-600/10 blur-xl pointer-events-none transition-colors" />
+                    <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-red-600/10 group-hover:bg-red-600/20 blur-xl pointer-events-none transition-colors" />
 
-                    <div className="relative z-10 flex items-start justify-between gap-4">
-                      <div>
-                        <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase">
-                          STUDENT COORDINATOR
-                        </span>
-                        <h4 className="font-stranger-title text-2xl sm:text-3xl text-white uppercase tracking-wider mt-0.5">
-                          {coord.name}
-                        </h4>
-                        <p className="text-xs text-zinc-400 mt-1">
-                          {coord.role}
-                        </p>
-                      </div>
-
-                      {/* Quick Call Link */}
-                      <a
-                        href={`tel:${coord.phone}`}
-                        className="p-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 text-zinc-400 hover:text-white transition-colors"
-                        title={`Call ${coord.name}`}
-                      >
-                        <Phone className="w-4 h-4" />
-                      </a>
+                    <div className="relative z-10 flex-1 min-w-0">
+                      <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase block mb-0.5">
+                        STUDENT COORDINATOR
+                      </span>
+                      <h4 className="font-stranger-title text-xl sm:text-2xl text-white uppercase tracking-wider truncate">
+                        {coord.name}
+                      </h4>
+                      <p className="text-xs text-zinc-400 mt-0.5 truncate">
+                        Student Coordinator • Department of ISE
+                      </p>
                     </div>
 
-                    {/* Bottom Strip: Phone Number & Prominent WhatsApp Direct Message Button */}
-                    <div className="relative z-10 pt-3 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div className="text-xs text-zinc-300">
-                        <span className="text-zinc-500 text-[11px] block uppercase tracking-wider">Phone</span>
-                        <a 
-                          href={`tel:${coord.phone}`} 
-                          className="font-mono text-zinc-200 hover:text-white transition-colors"
-                        >
-                          {coord.phone}
-                        </a>
-                      </div>
-
-                      <a
-                        href={`https://wa.me/${coord.cleanPhone}?text=${encodeURIComponent(coord.whatsappMessage)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-400 text-white font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.7)] active:scale-95 transition-all cursor-pointer"
-                      >
-                        <WhatsAppIcon className="w-4 h-4 text-white" />
-                        <span>Chat on WhatsApp</span>
-                      </a>
-                    </div>
+                    {/* Round WhatsApp Icon Button matching website theme */}
+                    <a
+                      href={`https://wa.me/${coord.cleanPhone}?text=${encodeURIComponent(coord.whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Chat with ${coord.name} on WhatsApp`}
+                      title={`Chat with ${coord.name} on WhatsApp`}
+                      className="relative z-10 shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-red-600 via-red-700 to-red-900 hover:from-red-500 hover:to-red-700 border border-red-500/80 text-white flex items-center justify-center shadow-[0_0_18px_rgba(255,20,35,0.45)] hover:shadow-[0_0_28px_rgba(255,20,35,0.8)] hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                    >
+                      <WhatsAppIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]" />
+                    </a>
                   </div>
                 ))}
               </div>
