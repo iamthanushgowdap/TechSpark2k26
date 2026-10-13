@@ -76,7 +76,7 @@ export const EVENTS_DATA = [
     timing: '10:00 AM - 03:30 PM',
     teamSize: 'LAPTOP-BASED (20 TEAMS)',
     prizePool: '',
-    registrationLink: '', // Registration link will be added once provided
+    registrationLink: 'https://tally.so/r/RGXqx9',
     brochureUrl: '/assets/Escape Room_event.pdf',
     threatLevel: 'LEVEL V',
     summary: 'A thrilling 4-stage digital mystery challenge spanning hacker rooms, murder mysteries, Sudoku, and Einstein logic riddles.',
