@@ -97,7 +97,7 @@ export default function BenguiatTitle({
             title="TechSpark 2K26"
           >
             <img
-              src="/assets/techspark-logo.png"
+              src="/assets/techspark-logo-2k26.png"
               alt="TechSpark 2K26 Emblem"
               className="w-14 h-14 xs:w-16 xs:h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain techspark-emblem-glow select-none pointer-events-none"
             />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Shield, Award, Compass
+  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Shield, Award, Compass, Download, FileText
 } from 'lucide-react';
 import BenguiatTitle from './BenguiatTitle';
 import CountdownClock from './CountdownClock';
@@ -422,6 +422,37 @@ export default function ScrollySections({
                     </div>
                   ))}
                 </div>
+
+                {/* Download Official Event Brochure & Rules PDF */}
+                {selectedDossier.brochureUrl && (
+                  <div className="pt-2">
+                    <a
+                      href={selectedDossier.brochureUrl}
+                      download={`${selectedDossier.title.replace(/\s+/g, '_')}_Rules.pdf`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/pdf w-full p-3.5 rounded-xl border border-red-800/80 hover:border-red-500 bg-gradient-to-r from-red-950/40 via-[#120105] to-red-950/40 flex items-center justify-between gap-3 shadow-[0_4px_20px_rgba(0,0,0,0.6)] transition-all cursor-pointer"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-9 h-9 rounded-lg bg-red-900/40 border border-red-500/50 flex items-center justify-center shrink-0 shadow-[0_0_10px_rgba(255,20,30,0.3)]">
+                          <FileText className="w-4 h-4 text-red-400 group-hover/pdf:text-white transition-colors" />
+                        </div>
+                        <div className="text-left min-w-0">
+                          <div className="text-xs font-bold tracking-wider text-white uppercase truncate">
+                            DOWNLOAD {selectedDossier.title} BROCHURE
+                          </div>
+                          <div className="text-[11px] text-zinc-400 truncate">
+                            Official rules, format &amp; guidelines PDF
+                          </div>
+                        </div>
+                      </div>
+                      <div className="shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-800/90 group-hover/pdf:bg-red-700 text-white text-xs font-semibold tracking-wider uppercase transition-colors shadow-[0_0_12px_rgba(255,20,30,0.4)]">
+                        <Download className="w-3.5 h-3.5" />
+                        <span className="hidden xs:inline">PDF</span>
+                      </div>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
 
