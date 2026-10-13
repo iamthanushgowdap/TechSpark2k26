@@ -68,24 +68,28 @@ export const EVENTS_DATA = [
     code: '03',
     secCode: '( EVENT 03 )',
     title: 'ESCAPE ROOM',
-    tagline: 'MYSTERY PUZZLE CHALLENGE',
-    category: '30-MIN PUZZLE ROOM',
+    tagline: 'MULTI-STAGE MYSTERY CHALLENGE',
+    category: '4-STAGE DIGITAL PUZZLE',
     image: '/assets/755cd1c2aeb24e0e459851a32f56df9b.jpg',
     venue: 'ISE BLOCK',
     date: 'OCTOBER 15, 2026',
     timing: '10:00 AM - 03:30 PM',
-    teamSize: '2 - 3 MEMBERS',
+    teamSize: 'LAPTOP-BASED (20 TEAMS)',
     prizePool: '',
     registrationLink: '', // Registration link will be added once provided
-    brochureUrl: '', // Will be mapped once uploaded
+    brochureUrl: '/assets/Escape Room_event.pdf',
     threatLevel: 'LEVEL V',
-    summary: 'A thrilling 30-minute real-life room escape challenge filled with locks, codes, and puzzles.',
-    missionBrief: 'Your team is locked inside a themed mystery room with a 30-minute countdown timer! Search the room for hidden objects, crack number locks, solve brain-teasers, and find the final key to escape in the fastest time.',
+    summary: 'A thrilling 4-stage digital mystery challenge spanning hacker rooms, murder mysteries, Sudoku, and Einstein logic riddles.',
+    missionBrief: 'Step into a multi-phase digital escape experience testing your wits, cryptography, and deductive reasoning across 4 challenging stages: Stage 1 "Hacker Escape Room" (Terminal & Port hacking), Stage 2 "Murder at Midnight" (Mansion investigation), Stage 3 "Sudoku" (Speed number logic grid), and Stage 4 "Five Houses" (Complex spatial deduction riddle). Complete the challenges on your laptop before the clock runs out to escape!',
     rules: [
-      'Each team gets strictly 30 minutes to escape the room.',
-      'Mobile phones and smartwatches are not allowed inside the puzzle room.',
-      'Use brainpower and logic only—do not force locks or props.',
-      'Up to 2 hints can be requested from the game master (with a small time penalty).'
+      'Each participating team must bring exactly one laptop for the challenges.',
+      'Mobile phones and external communication devices are strictly prohibited during the event.',
+      'Any communication, sharing of clues, or exchange of answers between teams results in immediate disqualification.',
+      'Stage 1 (Hacker Escape Room - 15 mins): Crack Terminal, Network, Binary & Port panels to uncover digits and solve the emoji room riddle.',
+      'Stage 2 (Murder at Midnight - 10 mins): Deduce clues in the dark mansion to identify the real killer before the timer expires.',
+      'Stage 3 (Sudoku - 5 mins): Solve the 4x4 speed grid without repeating numbers in any row or column to reveal the secret clue.',
+      'Stage 4 (Five Houses - 20 mins): Satisfy all category constraints using pure elimination and deductive logic.',
+      'The decision of the event coordinators is final and binding.'
     ],
     rewards: []
   },
