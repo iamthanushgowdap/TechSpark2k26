@@ -267,7 +267,7 @@ export default function ScrollytellingCanvas({
       // =========================================================================
       if (!isEnteredRef.current) {
         if (modelRef.current) modelRef.current.visible = false;
-      } else if (p < 0.16) {
+      } else if (p < 0.12) {
         // CHAPTER 1: THE GATE (Hero Stage)
         // Standing directly behind TECHSPARK text, subtle stalk stance
         if (modelRef.current) modelRef.current.visible = true;
@@ -277,11 +277,11 @@ export default function ScrollytellingCanvas({
 
         switchAction('idle', false); // loop in idle
         hasRoaredRef.current = false;
-      } else if (p < 0.30) {
+      } else if (p < 0.22) {
         // SCROLL TRANSITION: JUMP & ZOOM UP TO FRONT
         // As you scroll down from hero: zooms up and comes front, jumping past the camera!
         if (modelRef.current) modelRef.current.visible = true;
-        const jumpP = (p - 0.16) / 0.14; // 0 to 1
+        const jumpP = (p - 0.12) / 0.10; // 0 to 1
 
         // Zoom rapidly forward past the camera plane with upward leap
         targetPos.set(0, -0.92 + jumpP * 0.85, jumpP * 5.2);
@@ -298,12 +298,12 @@ export default function ScrollytellingCanvas({
         const c3Rect = chapter3El ? chapter3El.getBoundingClientRect() : null;
         const footerRect = footerEl ? footerEl.getBoundingClientRect() : null;
 
-        const isChapter3InView = c3Rect ? c3Rect.top < window.innerHeight * 0.55 : p >= 0.65;
+        const isChapter3InView = c3Rect ? c3Rect.top < window.innerHeight * 0.55 : p >= 0.78;
         const isFooterCovering = footerRect ? footerRect.top < window.innerHeight * 0.65 : false;
 
         if (!isChapter3InView || isFooterCovering) {
-          // CHAPTER 2, DEVELOPER CREDIT, OR FINAL FOOTER VIDEO
-          // Keep 3D model hidden so it never overlays Chapter 2, Developer Credit, or Footer Video
+          // PROFILES, CHAPTER 2, OR FINAL FOOTER VIDEO
+          // Keep 3D model hidden so it never overlays Profiles, Events, or Footer Video
           if (modelRef.current) modelRef.current.visible = false;
 
           if (activeActionRef.current === 'pounce' && actionsRef.current && actionsRef.current['pounce']) {

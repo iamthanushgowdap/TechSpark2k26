@@ -31,6 +31,20 @@ export const EVENTS_DATA = [
       '1st Prize: Exciting Cash Prize (₹X,XXX) + Championship Trophy',
       'Runner-Up: TechSpark Cricket Runner-Up Trophy & Honors',
       'Player of the Tournament & Best Bowler Awards'
+    ],
+    coordinators: [
+      {
+        name: 'Cricket Lead Coordinator',
+        phone: '+91 98765 43220',
+        cleanPhone: '919876543220',
+        role: 'Event Lead'
+      },
+      {
+        name: 'Cricket Student Coordinator',
+        phone: '+91 98765 43221',
+        cleanPhone: '919876543221',
+        role: 'Student Coordinator'
+      }
     ]
   },
   {
@@ -61,7 +75,21 @@ export const EVENTS_DATA = [
       'No mobile phones, calculators, internet searches, AI tools, or tampering with clues.',
       'In case of tie, earlier recorded submission time determines ranking.'
     ],
-    rewards: []
+    rewards: [],
+    coordinators: [
+      {
+        name: 'Treasure Hunt Lead',
+        phone: '+91 98765 43222',
+        cleanPhone: '919876543222',
+        role: 'Event Lead'
+      },
+      {
+        name: 'Treasure Hunt Coordinator',
+        phone: '+91 98765 43223',
+        cleanPhone: '919876543223',
+        role: 'Student Coordinator'
+      }
+    ]
   },
   {
     id: '03',
@@ -91,7 +119,21 @@ export const EVENTS_DATA = [
       'Stage 4 (Five Houses - 20 mins): Satisfy all category constraints using pure elimination and deductive logic.',
       'The decision of the event coordinators is final and binding.'
     ],
-    rewards: []
+    rewards: [],
+    coordinators: [
+      {
+        name: 'Escape Room Lead',
+        phone: '+91 98765 43224',
+        cleanPhone: '919876543224',
+        role: 'Event Lead'
+      },
+      {
+        name: 'Escape Room Coordinator',
+        phone: '+91 98765 43225',
+        cleanPhone: '919876543225',
+        role: 'Student Coordinator'
+      }
+    ]
   },
   {
     id: '04',
@@ -121,6 +163,38 @@ export const EVENTS_DATA = [
       'No external assistance, internet searches, or pre-recorded video footage allowed.',
       'Winner is decided by highest cumulative score out of 50 total marks across all 5 rounds.'
     ],
-    rewards: []
+    rewards: [],
+    coordinators: [
+      {
+        name: 'Battle Field Lead',
+        phone: '+91 98765 43226',
+        cleanPhone: '919876543226',
+        role: 'Event Lead'
+      },
+      {
+        name: 'Battle Field Coordinator',
+        phone: '+91 98765 43227',
+        cleanPhone: '919876543227',
+        role: 'Student Coordinator'
+      }
+    ]
+  }
+];
+
+// General Fest Student Coordinators (Skanda & Jeevan)
+export const FEST_COORDINATORS = [
+  {
+    name: 'Skanda',
+    role: 'Student Coordinator • ISE',
+    phone: '+91 98765 43210',
+    cleanPhone: '919876543210',
+    whatsappMessage: 'Hi Skanda, I have a query regarding TechSpark 2K26.'
+  },
+  {
+    name: 'Jeevan',
+    role: 'Student Coordinator • ISE',
+    phone: '+91 98765 43211',
+    cleanPhone: '919876543211',
+    whatsappMessage: 'Hi Jeevan, I have a query regarding TechSpark 2K26.'
   }
 ];
