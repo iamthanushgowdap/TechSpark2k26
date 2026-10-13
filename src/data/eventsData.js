@@ -34,15 +34,15 @@ export const EVENTS_DATA = [
     ],
     coordinators: [
       {
-        name: 'Cricket Lead Coordinator',
-        phone: '+91 98765 43220',
-        cleanPhone: '919876543220',
+        name: 'Srujan Chandra',
+        phone: '+91 76192 05542',
+        cleanPhone: '917619205542',
         role: 'Event Lead'
       },
       {
-        name: 'Cricket Student Coordinator',
-        phone: '+91 98765 43221',
-        cleanPhone: '919876543221',
+        name: 'Aravind',
+        phone: '+91 94480 02915',
+        cleanPhone: '919448002915',
         role: 'Student Coordinator'
       }
     ]
@@ -78,16 +78,10 @@ export const EVENTS_DATA = [
     rewards: [],
     coordinators: [
       {
-        name: 'Treasure Hunt Lead',
-        phone: '+91 98765 43222',
-        cleanPhone: '919876543222',
+        name: 'Siddaram',
+        phone: '+91 81054 73396',
+        cleanPhone: '918105473396',
         role: 'Event Lead'
-      },
-      {
-        name: 'Treasure Hunt Coordinator',
-        phone: '+91 98765 43223',
-        cleanPhone: '919876543223',
-        role: 'Student Coordinator'
       }
     ]
   },
@@ -122,16 +116,10 @@ export const EVENTS_DATA = [
     rewards: [],
     coordinators: [
       {
-        name: 'Escape Room Lead',
+        name: 'Event Coordinator',
         phone: '+91 98765 43224',
         cleanPhone: '919876543224',
         role: 'Event Lead'
-      },
-      {
-        name: 'Escape Room Coordinator',
-        phone: '+91 98765 43225',
-        cleanPhone: '919876543225',
-        role: 'Student Coordinator'
       }
     ]
   },
@@ -166,15 +154,15 @@ export const EVENTS_DATA = [
     rewards: [],
     coordinators: [
       {
-        name: 'Battle Field Lead',
-        phone: '+91 98765 43226',
-        cleanPhone: '919876543226',
+        name: 'Mythri',
+        phone: '+91 63669 11196',
+        cleanPhone: '916366911196',
         role: 'Event Lead'
       },
       {
-        name: 'Battle Field Coordinator',
-        phone: '+91 98765 43227',
-        cleanPhone: '919876543227',
+        name: 'Prashant',
+        phone: '+91 73488 35689',
+        cleanPhone: '917348835689',
         role: 'Student Coordinator'
       }
     ]
