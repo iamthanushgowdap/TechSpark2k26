@@ -174,15 +174,15 @@ export const FEST_COORDINATORS = [
   {
     name: 'Skanda',
     role: 'Student Coordinator • ISE',
-    phone: '+91 98765 43210',
-    cleanPhone: '919876543210',
+    phone: '+91 95909 08109',
+    cleanPhone: '919590908109',
     whatsappMessage: 'Hi Skanda, I have a query regarding TechSpark 2K26.'
   },
   {
     name: 'Jeevan',
     role: 'Student Coordinator • ISE',
-    phone: '+91 98765 43211',
-    cleanPhone: '919876543211',
+    phone: '+91 99860 60563',
+    cleanPhone: '919986060563',
     whatsappMessage: 'Hi Jeevan, I have a query regarding TechSpark 2K26.'
   }
 ];
