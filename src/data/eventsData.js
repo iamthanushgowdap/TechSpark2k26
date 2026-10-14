@@ -109,7 +109,7 @@ export const EVENTS_DATA = [
     timing: '09:30 AM',
     displayTiming: '09:30 AM ONWARDS',
     teamSize: '4 MEMBERS',
-    prizePool: '',
+    prizePool: '₹XXX',
     registrationLink: 'https://tally.so/r/WOGDbL',
     brochureUrl: '/assets/TH_event.pdf',
     threatLevel: 'LEVEL IV',
@@ -125,7 +125,10 @@ export const EVENTS_DATA = [
       'No mobile phones, calculators, internet searches, AI tools, or tampering with clues.',
       'In case of tie, earlier recorded submission time determines ranking.'
     ],
-    rewards: [],
+    rewards: [
+      '1st Prize: Exciting Cash Prize (₹XXX) + Winner Certificate',
+      'Runner-Up: TechSpark Treasure Hunt Runner-Up Honors'
+    ],
     coordinators: [
       {
         name: 'Siddaram',
