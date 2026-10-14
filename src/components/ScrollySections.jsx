@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Shield, Award, Compass, Download, FileText
+  X, ChevronRight, ArrowUpRight, Trophy, Users, MapPin, Clock, Calendar, Shield, Award, Compass, Download, FileText
 } from 'lucide-react';
 import BenguiatTitle from './BenguiatTitle';
 import CountdownClock from './CountdownClock';
@@ -356,19 +356,35 @@ export default function ScrollySections({
             {/* Dossier Body Content - Clean, Un-congested Editorial Architecture */}
             <div className="flex-1 overflow-y-auto px-6 sm:px-8 py-6 space-y-7 text-zinc-200">
               
-              {/* Event Specs Strip (Clean hairline dividers instead of nested boxes) */}
-              <div className="grid grid-cols-3 gap-4 py-4 border-y border-zinc-800/80 text-xs">
+              {/* Event Specs Strip (Clean hairline dividers with Date, Timing, Venue, Team Size) */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-zinc-800/80 text-xs font-sans">
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Team Size</div>
-                  <div className="font-semibold text-white">{selectedDossier.teamSize}</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-red-500" />
+                    <span>Date</span>
+                  </div>
+                  <div className="font-semibold text-white">{selectedDossier.date}</div>
                 </div>
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Venue</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-red-500" />
+                    <span>Timing</span>
+                  </div>
+                  <div className="font-semibold text-white">{selectedDossier.timing}</div>
+                </div>
+                <div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-red-500" />
+                    <span>Venue</span>
+                  </div>
                   <div className="font-semibold text-white">{selectedDossier.venue}</div>
                 </div>
                 <div>
-                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Timing</div>
-                  <div className="font-semibold text-white">{selectedDossier.timing}</div>
+                  <div className="text-[11px] text-zinc-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <Users className="w-3.5 h-3.5 text-red-500" />
+                    <span>Team Size</span>
+                  </div>
+                  <div className="font-semibold text-white">{selectedDossier.teamSize}</div>
                 </div>
               </div>
 
@@ -382,7 +398,7 @@ export default function ScrollySections({
                     </div>
                   </div>
                   <div className="text-right text-xs text-zinc-400">
-                    <div>October 15, 2026</div>
+                    <div>{selectedDossier.date}</div>
                     <div className="text-red-400 font-medium">{selectedDossier.venue}</div>
                   </div>
                 </div>
@@ -621,7 +637,7 @@ export default function ScrollySections({
 
               <div className="flex items-center gap-2 text-xs text-zinc-400 font-sans">
                 <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27]" />
-                <span>Department of ISE, APSCE • October 15, 2026</span>
+                <span>Department of ISE, APSCE • October 15 &amp; 16, 2026</span>
               </div>
             </div>
 
@@ -643,8 +659,9 @@ export default function ScrollySections({
 
                   {/* Top Card Info Bar */}
                   <div className="absolute top-4 right-5 sm:static sm:p-5 flex items-start justify-end sm:justify-between z-10 pointer-events-none">
-                    <span className="hidden sm:inline-block text-xs font-semibold text-red-400 tracking-wider uppercase font-sans">
-                      {evt.category}
+                    <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/80 border border-red-800/70 text-[11px] font-semibold text-red-300 tracking-wider uppercase font-sans">
+                      <Calendar className="w-3 h-3 text-red-400" />
+                      <span>{evt.shortDate} • {evt.timing}</span>
                     </span>
 
                     <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all leading-none">
@@ -671,10 +688,25 @@ export default function ScrollySections({
                       {evt.tagline}
                     </p>
 
-                    {/* Meta Specs */}
-                    <div className="flex items-center justify-between text-xs text-zinc-400 pt-2 border-t border-zinc-800/80 font-sans">
-                      <span>{evt.teamSize}</span>
-                      <span className="text-zinc-300">{evt.venue.split(' (')[0]}</span>
+                    {/* Date & Timing Badge (Visible across mobile and desktop) */}
+                    <div className="flex items-center justify-between text-xs pt-2 border-t border-zinc-800/80 font-sans">
+                      <div className="flex items-center gap-1.5 text-red-400 font-semibold">
+                        <Calendar className="w-3.5 h-3.5 text-red-500 shrink-0" />
+                        <span>{evt.shortDate || evt.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 text-zinc-300 font-medium">
+                        <Clock className="w-3.5 h-3.5 text-red-400 shrink-0" />
+                        <span>{evt.timing}</span>
+                      </div>
+                    </div>
+
+                    {/* Meta Specs: Venue & Team */}
+                    <div className="flex items-center justify-between text-[11px] text-zinc-400 font-sans">
+                      <div className="flex items-center gap-1 truncate max-w-[62%]">
+                        <MapPin className="w-3 h-3 text-red-500/80 shrink-0" />
+                        <span className="truncate text-zinc-300">{evt.venue}</span>
+                      </div>
+                      <span className="shrink-0 text-zinc-400">{evt.teamSize.split(' (')[0]}</span>
                     </div>
 
                     {/* Action Bar on Card */}
@@ -708,7 +740,7 @@ export default function ScrollySections({
             {/* Subtext */}
             <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
               <span>Tap any event card to view complete rules, timings, and event details.</span>
-              <span className="text-red-400 font-medium">October 15, 2026</span>
+              <span className="text-red-400 font-medium">October 15 &amp; 16, 2026</span>
             </div>
 
             {/* Fest Student Coordinators (Skanda & Jeevan) - No Photo, Direct WhatsApp */}

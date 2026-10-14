@@ -9,7 +9,9 @@ export const EVENTS_DATA = [
     image: '/assets/blood-moon.jpg',
     venue: 'OPEN AUDITORIUM',
     date: 'OCTOBER 15, 2026',
-    timing: '09:30 AM ONWARDS',
+    shortDate: 'OCT 15',
+    timing: '12:30 PM',
+    displayTiming: '12:30 PM ONWARDS',
     teamSize: '5 PLAYERS (MIN. 1 GIRL)',
     prizePool: '₹X,XXX',
     registrationLink: 'https://tally.so/r/D4r9NZ',
@@ -51,89 +53,15 @@ export const EVENTS_DATA = [
     id: '02',
     code: '02',
     secCode: '( EVENT 02 )',
-    title: 'TREASURE HUNT',
-    tagline: 'THE UPSIDE DOWN EXPEDITION',
-    category: '3-STAGE EXPEDITION',
-    image: '/assets/0cd48c1c05d0c25b12c752f1e6b669e8.jpg',
-    venue: 'APSCE CAMPUS',
-    date: 'OCTOBER 15, 2026',
-    timing: '10:30 AM - 01:00 PM',
-    teamSize: '4 MEMBERS',
-    prizePool: '',
-    registrationLink: 'https://tally.so/r/WOGDbL',
-    brochureUrl: '/assets/TH_event.pdf',
-    threatLevel: 'LEVEL IV',
-    summary: '3-Stage campus adventure: 30-puzzle paper round, blindfold memory drawing, and final campus clue hunt.',
-    missionBrief: 'An intense 3-round campus-wide expedition for squads of 4! Round 1 challenges 20 teams with a 15-minute 30-puzzle paper test (logic, coding-decoding, riddles) to qualify the Top 10. Round 2 puts memory and teamwork to the test as blindfolded representatives draw 10 memorized words for teammates to identify to select the Top 5. The Final Round unleashes the Top 5 squads across the campus to solve sequential clues and discover the ultimate treasure!',
-    rules: [
-      'Teams must consist of exactly 4 members (maximum 20 teams accepted).',
-      'All 4 team members must remain together throughout all rounds of the hunt.',
-      'Round 1: 15-minute 30-puzzle paper test covering logic & riddles (Top 10 qualify).',
-      'Round 2: Blindfold drawing memory challenge (Top 5 qualify).',
-      'Final Round: Sequential campus clue hunt with checkpoints to discover the treasure box.',
-      'One free hint allowed in the final round; extra hints incur scoring penalties.',
-      'No mobile phones, calculators, internet searches, AI tools, or tampering with clues.',
-      'In case of tie, earlier recorded submission time determines ranking.'
-    ],
-    rewards: [],
-    coordinators: [
-      {
-        name: 'Siddaram',
-        phone: '+91 81054 73396',
-        cleanPhone: '918105473396',
-        role: 'Event Lead'
-      }
-    ]
-  },
-  {
-    id: '03',
-    code: '03',
-    secCode: '( EVENT 03 )',
-    title: 'ESCAPE ROOM',
-    tagline: 'MULTI-STAGE MYSTERY CHALLENGE',
-    category: '4-STAGE DIGITAL PUZZLE',
-    image: '/assets/755cd1c2aeb24e0e459851a32f56df9b.jpg',
-    venue: 'ISE BLOCK',
-    date: 'OCTOBER 15, 2026',
-    timing: '10:00 AM - 03:30 PM',
-    teamSize: 'LAPTOP-BASED (20 TEAMS)',
-    prizePool: '',
-    registrationLink: 'https://tally.so/r/RGXqx9',
-    brochureUrl: '/assets/Escape Room_event.pdf',
-    threatLevel: 'LEVEL V',
-    summary: 'A thrilling 4-stage digital mystery challenge spanning hacker rooms, murder mysteries, Sudoku, and Einstein logic riddles.',
-    missionBrief: 'Step into a multi-phase digital escape experience testing your wits, cryptography, and deductive reasoning across 4 challenging stages: Stage 1 "Hacker Escape Room" (Terminal & Port hacking), Stage 2 "Murder at Midnight" (Mansion investigation), Stage 3 "Sudoku" (Speed number logic grid), and Stage 4 "Five Houses" (Complex spatial deduction riddle). Complete the challenges on your laptop before the clock runs out to escape!',
-    rules: [
-      'Each participating team must bring exactly one laptop for the challenges.',
-      'Mobile phones and external communication devices are strictly prohibited during the event.',
-      'Any communication, sharing of clues, or exchange of answers between teams results in immediate disqualification.',
-      'Stage 1 (Hacker Escape Room - 15 mins): Crack Terminal, Network, Binary & Port panels to uncover digits and solve the emoji room riddle.',
-      'Stage 2 (Murder at Midnight - 10 mins): Deduce clues in the dark mansion to identify the real killer before the timer expires.',
-      'Stage 3 (Sudoku - 5 mins): Solve the 4x4 speed grid without repeating numbers in any row or column to reveal the secret clue.',
-      'Stage 4 (Five Houses - 20 mins): Satisfy all category constraints using pure elimination and deductive logic.',
-      'The decision of the event coordinators is final and binding.'
-    ],
-    rewards: [],
-    coordinators: [
-      {
-        name: 'Event Coordinator',
-        phone: '+91 98765 43224',
-        cleanPhone: '919876543224',
-        role: 'Event Lead'
-      }
-    ]
-  },
-  {
-    id: '04',
-    code: '04',
-    secCode: '( EVENT 04 )',
     title: 'BATTLE FIELD',
     tagline: 'MULTI-ROUND SQUAD ARENA',
     category: '5-ROUND SHOWDOWN',
     image: '/assets/mind-flayer-storm.jpg',
-    venue: 'ISE BLOCK',
+    venue: 'PLACEMENT SEMINAR HALL',
     date: 'OCTOBER 15, 2026',
-    timing: '11:00 AM - 04:00 PM',
+    shortDate: 'OCT 15',
+    timing: '12:30 PM',
+    displayTiming: '12:30 PM ONWARDS',
     teamSize: '4 MEMBERS',
     prizePool: '',
     registrationLink: 'https://tally.so/r/PdMW1V',
@@ -164,6 +92,86 @@ export const EVENTS_DATA = [
         phone: '+91 73488 35689',
         cleanPhone: '917348835689',
         role: 'Student Coordinator'
+      }
+    ]
+  },
+  {
+    id: '03',
+    code: '03',
+    secCode: '( EVENT 03 )',
+    title: 'TREASURE HUNT',
+    tagline: 'THE UPSIDE DOWN EXPEDITION',
+    category: '3-STAGE EXPEDITION',
+    image: '/assets/0cd48c1c05d0c25b12c752f1e6b669e8.jpg',
+    venue: 'PLACEMENT SEMINAR HALL',
+    date: 'OCTOBER 16, 2026',
+    shortDate: 'OCT 16',
+    timing: '09:30 AM',
+    displayTiming: '09:30 AM ONWARDS',
+    teamSize: '4 MEMBERS',
+    prizePool: '',
+    registrationLink: 'https://tally.so/r/WOGDbL',
+    brochureUrl: '/assets/TH_event.pdf',
+    threatLevel: 'LEVEL IV',
+    summary: '3-Stage campus adventure: 30-puzzle paper round, blindfold memory drawing, and final campus clue hunt.',
+    missionBrief: 'An intense 3-round campus-wide expedition for squads of 4! Round 1 challenges 20 teams with a 15-minute 30-puzzle paper test (logic, coding-decoding, riddles) to qualify the Top 10. Round 2 puts memory and teamwork to the test as blindfolded representatives draw 10 memorized words for teammates to identify to select the Top 5. The Final Round unleashes the Top 5 squads across the campus to solve sequential clues and discover the ultimate treasure!',
+    rules: [
+      'Teams must consist of exactly 4 members (maximum 20 teams accepted).',
+      'All 4 team members must remain together throughout all rounds of the hunt.',
+      'Round 1: 15-minute 30-puzzle paper test covering logic & riddles (Top 10 qualify).',
+      'Round 2: Blindfold drawing memory challenge (Top 5 qualify).',
+      'Final Round: Sequential campus clue hunt with checkpoints to discover the treasure box.',
+      'One free hint allowed in the final round; extra hints incur scoring penalties.',
+      'No mobile phones, calculators, internet searches, AI tools, or tampering with clues.',
+      'In case of tie, earlier recorded submission time determines ranking.'
+    ],
+    rewards: [],
+    coordinators: [
+      {
+        name: 'Siddaram',
+        phone: '+91 81054 73396',
+        cleanPhone: '918105473396',
+        role: 'Event Lead'
+      }
+    ]
+  },
+  {
+    id: '04',
+    code: '04',
+    secCode: '( EVENT 04 )',
+    title: 'ESCAPE ROOM',
+    tagline: 'MULTI-STAGE MYSTERY CHALLENGE',
+    category: '4-STAGE DIGITAL PUZZLE',
+    image: '/assets/755cd1c2aeb24e0e459851a32f56df9b.jpg',
+    venue: 'ISE BLOCK',
+    date: 'OCTOBER 16, 2026',
+    shortDate: 'OCT 16',
+    timing: 'WILL BE SHARED',
+    displayTiming: 'WILL BE SHARED',
+    teamSize: 'LAPTOP-BASED (20 TEAMS)',
+    prizePool: '',
+    registrationLink: 'https://tally.so/r/RGXqx9',
+    brochureUrl: '/assets/Escape Room_event.pdf',
+    threatLevel: 'LEVEL V',
+    summary: 'A thrilling 4-stage digital mystery challenge spanning hacker rooms, murder mysteries, Sudoku, and Einstein logic riddles.',
+    missionBrief: 'Step into a multi-phase digital escape experience testing your wits, cryptography, and deductive reasoning across 4 challenging stages: Stage 1 "Hacker Escape Room" (Terminal & Port hacking), Stage 2 "Murder at Midnight" (Mansion investigation), Stage 3 "Sudoku" (Speed number logic grid), and Stage 4 "Five Houses" (Complex spatial deduction riddle). Complete the challenges on your laptop before the clock runs out to escape!',
+    rules: [
+      'Each participating team must bring exactly one laptop for the challenges.',
+      'Mobile phones and external communication devices are strictly prohibited during the event.',
+      'Any communication, sharing of clues, or exchange of answers between teams results in immediate disqualification.',
+      'Stage 1 (Hacker Escape Room - 15 mins): Crack Terminal, Network, Binary & Port panels to uncover digits and solve the emoji room riddle.',
+      'Stage 2 (Murder at Midnight - 10 mins): Deduce clues in the dark mansion to identify the real killer before the timer expires.',
+      'Stage 3 (Sudoku - 5 mins): Solve the 4x4 speed grid without repeating numbers in any row or column to reveal the secret clue.',
+      'Stage 4 (Five Houses - 20 mins): Satisfy all category constraints using pure elimination and deductive logic.',
+      'The decision of the event coordinators is final and binding.'
+    ],
+    rewards: [],
+    coordinators: [
+      {
+        name: 'Event Coordinator',
+        phone: '+91 98765 43224',
+        cleanPhone: '919876543224',
+        role: 'Event Lead'
       }
     ]
   }
