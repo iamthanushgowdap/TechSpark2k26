@@ -31,8 +31,7 @@ export const EVENTS_DATA = [
     ],
     rewards: [
       '1st Prize: Exciting Cash Prize (₹X,XXX) + Championship Trophy',
-      'Runner-Up: TechSpark Cricket Runner-Up Trophy & Honors',
-      'Player of the Tournament & Best Bowler Awards'
+      'Runner-Up: TechSpark Cricket Runner-Up Trophy & Honors'
     ],
     coordinators: [
       {
@@ -42,9 +41,9 @@ export const EVENTS_DATA = [
         role: 'Event Lead'
       },
       {
-        name: 'Aravind',
-        phone: '+91 94480 02915',
-        cleanPhone: '919448002915',
+        name: 'Akash',
+        phone: '+91 88617 26352',
+        cleanPhone: '918861726352',
         role: 'Student Coordinator'
       }
     ]
@@ -68,12 +67,12 @@ export const EVENTS_DATA = [
     brochureUrl: '/assets/BATTLEFILELD_event.pdf',
     threatLevel: 'LEVEL V',
     summary: '5-Round cumulative championship: Press Start Quiz, Face Off, Scene Stealers, Meme Match, and Reel Rush.',
-    missionBrief: "A multi-stage showdown testing wit, stage presence, pop culture, and creative hustle across 5 cumulative rounds with zero eliminations! All 10 teams compete in: Round 1 'Press Start' (Rapid Oral Quiz), Round 2 'Face Off' (Guess the Personality), Round 3 'Scene Stealers' (30s Live Movie Scene Enactment), Round 4 'Meme Match' (Guess the Meme with passing rules), and Round 5 'Reel Rush' (45-minute Campus Promo Reel Creation). Highest cumulative score across all 5 rounds claims the title!",
+    missionBrief: "A multi-stage showdown testing wit, stage presence, pop culture, and creative hustle across 5 cumulative rounds with zero eliminations! All 10 teams compete in: Round 1 'Press Start' (Rapid Oral Quiz), Round 2 'Face Off' (Guess the Personality), Round 3 'Scene Stealers' (45s to 1min Live Movie Scene Enactment), Round 4 'Meme Match' (Guess the Meme with passing rules), and Round 5 'Reel Rush' (45-minute Campus Promo Reel Creation). Highest cumulative score across all 5 rounds claims the title!",
     rules: [
       'Teams consist of 4 members; 10 teams compete across all 5 rounds with no elimination.',
       'Round 1 (Press Start): 4 oral questions per team, 10s per question (10 marks total).',
       'Round 2 (Face Off): Guess 10 personalities from photos + hints, 30s per photo (10 marks total).',
-      'Round 3 (Scene Stealers): 5-min prep, all 4 members must enact a 30s movie scene before judges (10 marks).',
+      'Round 3 (Scene Stealers): 5-min prep, all 4 members must enact a 45s to 1min movie scene before judges (10 marks).',
       'Round 4 (Meme Match): 15s to guess meme (10 marks own, 5 marks for passed memes).',
       'Round 5 (Reel Rush): 45 mins to shoot, edit & upload a ≤30s college promo reel (10 marks).',
       'No external assistance, internet searches, or pre-recorded video footage allowed.',
