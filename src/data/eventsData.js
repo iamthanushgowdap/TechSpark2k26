@@ -143,11 +143,11 @@ export const EVENTS_DATA = [
     tagline: 'MULTI-STAGE MYSTERY CHALLENGE',
     category: '4-STAGE DIGITAL PUZZLE',
     image: '/assets/755cd1c2aeb24e0e459851a32f56df9b.jpg',
-    venue: 'ISE BLOCK',
+    venue: 'ISLH 201, ISLH 202, ISLH 203 & ISE SEMINAR HALL',
     date: 'OCTOBER 16, 2026',
     shortDate: 'OCT 16',
-    timing: 'WILL BE SHARED',
-    displayTiming: 'WILL BE SHARED',
+    timing: '12:30 PM',
+    displayTiming: '12:30 PM ONWARDS',
     teamSize: 'LAPTOP-BASED (20 TEAMS)',
     prizePool: '',
     registrationLink: 'https://tally.so/r/RGXqx9',
@@ -168,10 +168,16 @@ export const EVENTS_DATA = [
     rewards: [],
     coordinators: [
       {
-        name: 'Event Coordinator',
-        phone: '+91 98765 43224',
-        cleanPhone: '919876543224',
+        name: 'Rachana Lokesh',
+        phone: '+91 90081 33575',
+        cleanPhone: '919008133575',
         role: 'Event Lead'
+      },
+      {
+        name: 'Tejas',
+        phone: '+91 91087 92047',
+        cleanPhone: '919108792047',
+        role: 'Student Coordinator'
       }
     ]
   }
