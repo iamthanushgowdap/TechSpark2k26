@@ -581,9 +581,203 @@ export default function ScrollySections({
       </section>
 
       {/* =========================================================================
+          CHAPTER 2: THE FOUR EVENTS & FEST COORDINATORS
+          Placed immediately after the Hero section
+          ========================================================================= */}
+      <section 
+        id="chapter-2"
+        className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-10 my-10 sm:my-20"
+      >
+        <div className="w-full max-w-7xl flex flex-col lg:flex-row items-stretch gap-6 sm:gap-10 pointer-events-auto">
+          
+          {/* Left Vertical Editorial Spine */}
+          <div className="hidden lg:flex flex-col justify-between items-center py-4 border-r border-red-950/80 pr-6 select-none">
+            <span className="text-xs text-red-500 font-semibold tracking-widest font-sans">
+              2K26
+            </span>
+
+            <div className="vertical-editorial-text font-benguiat text-4xl xl:text-5xl font-black text-red-600/30 tracking-widest my-8">
+              ( EVENTS )
+            </div>
+
+            <div className="vertical-editorial-text text-[11px] text-zinc-500 tracking-widest uppercase font-sans">
+              TechSpark 2K26 • ISE
+            </div>
+          </div>
+
+          {/* Main Grid Content Area */}
+          <div className="flex-1 flex flex-col gap-5 sm:gap-8 font-sans">
+            
+            {/* Editorial Header */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-5">
+              <div>
+                <h2 className="font-benguiat text-3xl sm:text-5xl font-extrabold text-white tracking-wide">
+                  CHOOSE YOUR EXPEDITION
+                </h2>
+                <p className="text-sm sm:text-base text-zinc-300 mt-2 font-normal">
+                  Four flagship department events. Register your squad and battle for victory.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 text-xs text-zinc-400 font-sans">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27]" />
+                <span>Department of ISE, APSCE • October 15, 2026</span>
+              </div>
+            </div>
+
+            {/* 4 Event Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {EVENTS_DATA.map((evt) => (
+                <div
+                  key={evt.id}
+                  onClick={() => handleOpenDossier(evt)}
+                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-gradient-to-br from-[#120105]/95 via-[#080003]/95 to-[#040002]/95 sm:bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-0 sm:min-h-[440px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+                >
+                  {/* Poster Background Image with Vignette */}
+                  <img
+                    src={evt.image}
+                    alt={evt.title}
+                    className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-65 group-hover:scale-108 transition-all duration-700"
+                  />
+                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
+
+                  {/* Top Card Info Bar */}
+                  <div className="absolute top-4 right-5 sm:static sm:p-5 flex items-start justify-end sm:justify-between z-10 pointer-events-none">
+                    <span className="hidden sm:inline-block text-xs font-semibold text-red-400 tracking-wider uppercase font-sans">
+                      {evt.category}
+                    </span>
+
+                    <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all leading-none">
+                      {evt.code}
+                    </span>
+                  </div>
+
+                  {/* Card Details Content */}
+                  <div className="relative p-5 sm:p-6 z-10 flex flex-col gap-2">
+                    {/* Prize Badge */}
+                    {evt.prizePool && (
+                      <div className="text-amber-400 font-sans text-sm font-bold pr-14 sm:pr-0">
+                        {evt.prizePool}
+                      </div>
+                    )}
+
+                    {/* Event Title */}
+                    <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-red-200 transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] pr-12 sm:pr-0">
+                      {evt.title}
+                    </h3>
+
+                    {/* Tagline */}
+                    <p className="text-xs text-zinc-400 line-clamp-1 font-serif italic">
+                      {evt.tagline}
+                    </p>
+
+                    {/* Meta Specs */}
+                    <div className="flex items-center justify-between text-xs text-zinc-400 pt-2 border-t border-zinc-800/80 font-sans">
+                      <span>{evt.teamSize}</span>
+                      <span className="text-zinc-300">{evt.venue.split(' (')[0]}</span>
+                    </div>
+
+                    {/* Action Bar on Card */}
+                    <div className="mt-2 pt-2 flex items-center gap-2 font-sans">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenDossier(evt);
+                        }}
+                        className="flex-1 py-2 px-3 rounded-lg bg-black/60 hover:bg-red-950/70 border border-zinc-800 hover:border-red-800 text-zinc-300 hover:text-white text-xs font-medium transition-all"
+                      >
+                        View Details
+                      </button>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenRegistration(evt.id);
+                        }}
+                        className="py-2 px-3.5 rounded-lg bg-red-700 hover:bg-red-600 text-white text-xs font-semibold transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] flex items-center gap-1"
+                      >
+                        <span>Register</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Subtext */}
+            <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
+              <span>Tap any event card to view complete rules, timings, and event details.</span>
+              <span className="text-red-400 font-medium">October 15, 2026</span>
+            </div>
+
+            {/* Fest Student Coordinators (Skanda & Jeevan) - No Photo, Direct WhatsApp */}
+            <div className="w-full mt-6 sm:mt-10 pt-6 sm:pt-8 border-t border-zinc-800/80 font-sans">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-red-400 uppercase mb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ff1e27]" />
+                    <span>GENERAL FEST ENQUIRIES &amp; ASSISTANCE</span>
+                  </div>
+                  <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide">
+                    FEST COORDINATORS
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+                    For overall fest queries, registration assistance, or rules clarification, reach out to our student coordinators.
+                  </p>
+                </div>
+
+                <div className="text-[11px] text-zinc-500 hidden sm:block">
+                  Department of ISE • Student Leads
+                </div>
+              </div>
+
+              {/* 2 Coordinator Cards: Skanda & Jeevan (No Photo, Clean Glassmorphic Cards) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                {FEST_COORDINATORS.map((coord, idx) => (
+                  <div
+                    key={idx}
+                    className="relative group rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#140105]/95 via-[#080003]/95 to-[#140105]/95 backdrop-blur-xl p-4 sm:p-5 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_12px_45px_rgba(255,20,35,0.25)] transition-all duration-300 overflow-hidden flex items-center justify-between gap-4"
+                  >
+                    {/* Ambient Glow */}
+                    <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-red-600/10 group-hover:bg-red-600/20 blur-xl pointer-events-none transition-colors" />
+
+                    <div className="relative z-10 flex-1 min-w-0">
+                      <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase block mb-0.5">
+                        STUDENT COORDINATOR
+                      </span>
+                      <h4 className="font-stranger-title text-xl sm:text-2xl text-white uppercase tracking-wider truncate">
+                        {coord.name}
+                      </h4>
+                      <p className="text-xs text-zinc-400 mt-0.5 truncate">
+                        Student Coordinator • Department of ISE
+                      </p>
+                    </div>
+
+                    {/* Round WhatsApp Icon Button matching website theme */}
+                    <a
+                      href={`https://wa.me/${coord.cleanPhone}?text=${encodeURIComponent(coord.whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Chat with ${coord.name} on WhatsApp`}
+                      title={`Chat with ${coord.name} on WhatsApp`}
+                      className="relative z-10 shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-red-600 via-red-700 to-red-900 hover:from-red-500 hover:to-red-700 border border-red-500/80 text-white flex items-center justify-center shadow-[0_0_18px_rgba(255,20,35,0.45)] hover:shadow-[0_0_28px_rgba(255,20,35,0.8)] hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                    >
+                      <WhatsAppIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
           DEPARTMENT LEADERSHIP & DEVELOPER SPOTLIGHT
           (Dr. Mithun B N, Prof. Lohithkumar J K, Thanush Gowda P)
-          Placed immediately after Hero section and before Chapter 2
+          Placed after Chapter 2 and before Chapter 3
           ========================================================================= */}
       <section 
         id="developer-spotlight"
@@ -780,200 +974,6 @@ export default function ScrollySections({
               </div>
 
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          CHAPTER 2: THE FOUR EVENTS & FEST COORDINATORS
-          Placed immediately after the Leadership / Profiles section
-          ========================================================================= */}
-      <section 
-        id="chapter-2"
-        className="relative min-h-screen w-full flex items-center justify-center p-4 sm:p-10 my-10 sm:my-20"
-      >
-        <div className="w-full max-w-7xl flex flex-col lg:flex-row items-stretch gap-6 sm:gap-10 pointer-events-auto">
-          
-          {/* Left Vertical Editorial Spine */}
-          <div className="hidden lg:flex flex-col justify-between items-center py-4 border-r border-red-950/80 pr-6 select-none">
-            <span className="text-xs text-red-500 font-semibold tracking-widest font-sans">
-              2K26
-            </span>
-
-            <div className="vertical-editorial-text font-benguiat text-4xl xl:text-5xl font-black text-red-600/30 tracking-widest my-8">
-              ( EVENTS )
-            </div>
-
-            <div className="vertical-editorial-text text-[11px] text-zinc-500 tracking-widest uppercase font-sans">
-              TechSpark 2K26 • ISE
-            </div>
-          </div>
-
-          {/* Main Grid Content Area */}
-          <div className="flex-1 flex flex-col gap-5 sm:gap-8 font-sans">
-            
-            {/* Editorial Header */}
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-5">
-              <div>
-                <h2 className="font-benguiat text-3xl sm:text-5xl font-extrabold text-white tracking-wide">
-                  CHOOSE YOUR EXPEDITION
-                </h2>
-                <p className="text-sm sm:text-base text-zinc-300 mt-2 font-normal">
-                  Four flagship department events. Register your squad and battle for victory.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs text-zinc-400 font-sans">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27]" />
-                <span>Department of ISE, APSCE • October 15, 2026</span>
-              </div>
-            </div>
-
-            {/* 4 Event Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              {EVENTS_DATA.map((evt) => (
-                <div
-                  key={evt.id}
-                  onClick={() => handleOpenDossier(evt)}
-                  className="netflix-poster-card group relative rounded-2xl overflow-hidden border border-zinc-800/90 hover:border-red-600/80 bg-gradient-to-br from-[#120105]/95 via-[#080003]/95 to-[#040002]/95 sm:bg-black/85 backdrop-blur-xl cursor-pointer flex flex-col justify-between min-h-0 sm:min-h-[440px] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
-                >
-                  {/* Poster Background Image with Vignette */}
-                  <img
-                    src={evt.image}
-                    alt={evt.title}
-                    className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-65 group-hover:scale-108 transition-all duration-700"
-                  />
-                  <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-
-                  {/* Top Card Info Bar */}
-                  <div className="absolute top-4 right-5 sm:static sm:p-5 flex items-start justify-end sm:justify-between z-10 pointer-events-none">
-                    <span className="hidden sm:inline-block text-xs font-semibold text-red-400 tracking-wider uppercase font-sans">
-                      {evt.category}
-                    </span>
-
-                    <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all leading-none">
-                      {evt.code}
-                    </span>
-                  </div>
-
-                  {/* Card Details Content */}
-                  <div className="relative p-5 sm:p-6 z-10 flex flex-col gap-2">
-                    {/* Prize Badge */}
-                    {evt.prizePool && (
-                      <div className="text-amber-400 font-sans text-sm font-bold pr-14 sm:pr-0">
-                        {evt.prizePool}
-                      </div>
-                    )}
-
-                    {/* Event Title */}
-                    <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide group-hover:text-red-200 transition-colors drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] pr-12 sm:pr-0">
-                      {evt.title}
-                    </h3>
-
-                    {/* Tagline */}
-                    <p className="text-xs text-zinc-400 line-clamp-1 font-serif italic">
-                      {evt.tagline}
-                    </p>
-
-                    {/* Meta Specs */}
-                    <div className="flex items-center justify-between text-xs text-zinc-400 pt-2 border-t border-zinc-800/80 font-sans">
-                      <span>{evt.teamSize}</span>
-                      <span className="text-zinc-300">{evt.venue.split(' (')[0]}</span>
-                    </div>
-
-                    {/* Action Bar on Card */}
-                    <div className="mt-2 pt-2 flex items-center gap-2 font-sans">
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleOpenDossier(evt);
-                        }}
-                        className="flex-1 py-2 px-3 rounded-lg bg-black/60 hover:bg-red-950/70 border border-zinc-800 hover:border-red-800 text-zinc-300 hover:text-white text-xs font-medium transition-all"
-                      >
-                        View Details
-                      </button>
-
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleOpenRegistration(evt.id);
-                        }}
-                        className="py-2 px-3.5 rounded-lg bg-red-700 hover:bg-red-600 text-white text-xs font-semibold transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] flex items-center gap-1"
-                      >
-                        <span>Register</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Subtext */}
-            <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
-              <span>Tap any event card to view complete rules, timings, and event details.</span>
-              <span className="text-red-400 font-medium">October 15, 2026</span>
-            </div>
-
-            {/* Fest Student Coordinators (Skanda & Jeevan) - No Photo, Direct WhatsApp */}
-            <div className="w-full mt-6 sm:mt-10 pt-6 sm:pt-8 border-t border-zinc-800/80 font-sans">
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-5">
-                <div>
-                  <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-red-400 uppercase mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_8px_#ff1e27]" />
-                    <span>GENERAL FEST INQUIRIES &amp; ASSISTANCE</span>
-                  </div>
-                  <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wide">
-                    FEST COORDINATORS
-                  </h3>
-                  <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                    For overall fest queries, registration assistance, or rules clarification, reach out to our student coordinators.
-                  </p>
-                </div>
-
-                <div className="text-[11px] text-zinc-500 hidden sm:block">
-                  Department of ISE • Student Leads
-                </div>
-              </div>
-
-              {/* 2 Coordinator Cards: Skanda & Jeevan (No Photo, Clean Glassmorphic Cards) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                {FEST_COORDINATORS.map((coord, idx) => (
-                  <div
-                    key={idx}
-                    className="relative group rounded-2xl border border-red-900/60 hover:border-red-500/80 bg-gradient-to-r from-[#140105]/95 via-[#080003]/95 to-[#140105]/95 backdrop-blur-xl p-4 sm:p-5 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_12px_45px_rgba(255,20,35,0.25)] transition-all duration-300 overflow-hidden flex items-center justify-between gap-4"
-                  >
-                    {/* Ambient Glow */}
-                    <div className="absolute -top-10 -right-10 w-28 h-28 rounded-full bg-red-600/10 group-hover:bg-red-600/20 blur-xl pointer-events-none transition-colors" />
-
-                    <div className="relative z-10 flex-1 min-w-0">
-                      <span className="text-[10px] font-bold tracking-[0.22em] text-red-400 uppercase block mb-0.5">
-                        STUDENT COORDINATOR
-                      </span>
-                      <h4 className="font-stranger-title text-xl sm:text-2xl text-white uppercase tracking-wider truncate">
-                        {coord.name}
-                      </h4>
-                      <p className="text-xs text-zinc-400 mt-0.5 truncate">
-                        Student Coordinator • Department of ISE
-                      </p>
-                    </div>
-
-                    {/* Round WhatsApp Icon Button matching website theme */}
-                    <a
-                      href={`https://wa.me/${coord.cleanPhone}?text=${encodeURIComponent(coord.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Chat with ${coord.name} on WhatsApp`}
-                      title={`Chat with ${coord.name} on WhatsApp`}
-                      className="relative z-10 shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-red-600 via-red-700 to-red-900 hover:from-red-500 hover:to-red-700 border border-red-500/80 text-white flex items-center justify-center shadow-[0_0_18px_rgba(255,20,35,0.45)] hover:shadow-[0_0_28px_rgba(255,20,35,0.8)] hover:scale-110 active:scale-95 transition-all cursor-pointer"
-                    >
-                      <WhatsAppIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]" />
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
