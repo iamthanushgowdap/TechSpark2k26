@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 export default function CountdownClock() {
-  // Target fest date: October 15th, 2026
-  const targetDate = new Date('2026-10-15T09:00:00').getTime();
+  // Target fest date: October 15th, 2026 at 09:30 AM IST
+  const targetDate = new Date('2026-10-15T09:30:00+05:30').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -45,14 +45,14 @@ export default function CountdownClock() {
 
   return (
     <div className="flex flex-col items-center">
-      {/* October 15th Header - Bold, Energetic, Elegant 3D Beveled Typography */}
+      {/* October 15th 09:30 AM Header - Bold, Energetic, Elegant 3D Beveled Typography */}
       <div className="flex items-center justify-center gap-2.5 sm:gap-4 mb-2 sm:mb-3">
         <div className="flex items-center gap-1.5">
           <span className="w-8 sm:w-14 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-red-400 shadow-[0_0_10px_#ff1e27]" />
           <span className="text-red-500 text-[9px] sm:text-[10px] drop-shadow-[0_0_8px_#ff1e27]">◆</span>
         </div>
-        <span className="font-cinzel text-base xs:text-lg sm:text-xl md:text-2xl font-black tracking-[0.28em] sm:tracking-[0.34em] text-white uppercase scale-y-105 select-none">
-          OCTOBER 15TH
+        <span className="font-cinzel text-sm xs:text-base sm:text-xl md:text-2xl font-black tracking-[0.22em] sm:tracking-[0.32em] text-white uppercase scale-y-105 select-none whitespace-nowrap">
+          OCTOBER 15TH • 09:30 AM
         </span>
         <div className="flex items-center gap-1.5">
           <span className="text-red-500 text-[9px] sm:text-[10px] drop-shadow-[0_0_8px_#ff1e27]">◆</span>
