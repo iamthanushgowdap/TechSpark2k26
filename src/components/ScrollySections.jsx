@@ -22,19 +22,14 @@ export default function ScrollySections({
   isModelLoaded = false 
 }) {
   const [selectedDossier, setSelectedDossier] = useState(null);
-  const [comingSoonEvent, setComingSoonEvent] = useState(null);
+  const [isClosedNoticeOpen, setIsClosedNoticeOpen] = useState(false);
   const [isDevCardOpen, setIsDevCardOpen] = useState(false);
   const [isHodCardOpen, setIsHodCardOpen] = useState(false);
   const [isCoordinatorCardOpen, setIsCoordinatorCardOpen] = useState(false);
 
-  const handleOpenRegistration = (eventId) => {
+  const handleOpenRegistration = () => {
     soundEngine.playPortalGlitch();
-    const targetEvent = EVENTS_DATA.find((e) => e.id === eventId) || EVENTS_DATA[0];
-    if (targetEvent?.registrationLink) {
-      window.open(targetEvent.registrationLink, '_blank', 'noopener,noreferrer');
-    } else {
-      setComingSoonEvent(targetEvent);
-    }
+    setIsClosedNoticeOpen(true);
   };
 
   const handleOpenDossier = (event) => {
@@ -67,31 +62,31 @@ export default function ScrollySections({
 
   return (
     <div className="relative z-20 w-full text-white pointer-events-none select-none">
-      {/* 1. Coming Soon Popup (Shown when Register is clicked before Google Form links are added) */}
-      {comingSoonEvent && (
+      {/* 1. Registrations Closed Notice Modal */}
+      {isClosedNoticeOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-auto animate-fadeIn font-sans">
           <div
-            onClick={() => setComingSoonEvent(null)}
-            className="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+            onClick={() => setIsClosedNoticeOpen(false)}
+            className="absolute inset-0 bg-black/85 backdrop-blur-md cursor-pointer"
           />
           <div className="relative z-10 w-full max-w-xs sm:max-w-sm rounded-2xl border border-red-600/70 bg-gradient-to-b from-[#160106] via-[#090003] to-[#040002] p-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.95),0_0_40px_rgba(255,20,35,0.3)]">
-            <div className="w-10 h-10 mx-auto mb-3 rounded-full bg-red-950/80 border border-red-500/70 flex items-center justify-center shadow-[0_0_15px_rgba(255,20,30,0.4)]">
-              <Clock className="w-5 h-5 text-red-400" />
+            <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-red-950/80 border border-red-500/70 flex items-center justify-center shadow-[0_0_15px_rgba(255,20,30,0.4)]">
+              <Shield className="w-6 h-6 text-red-400" />
             </div>
             <span className="text-[10px] font-bold tracking-[0.28em] text-red-400 uppercase">
-              {comingSoonEvent.title}
+              TECHSPARK 2K26 • ISE
             </span>
             <h3 className="font-benguiat text-2xl sm:text-3xl font-bold text-white tracking-wider mt-1">
-              COMING SOON
+              REGISTRATIONS CLOSED
             </h3>
-            <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed">
-              Registration link for <span className="text-zinc-200 font-medium">{comingSoonEvent.title}</span> will open shortly.
+            <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+              TechSpark 2K26 has officially concluded. All event gates and registrations are now closed. A heartfelt thank you to all participants, squads, and coordinators!
             </p>
             <button
-              onClick={() => setComingSoonEvent(null)}
+              onClick={() => setIsClosedNoticeOpen(false)}
               className="mt-5 w-full py-2.5 rounded-xl bg-red-700 hover:bg-red-600 text-white text-xs font-semibold tracking-wider uppercase transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] cursor-pointer"
             >
-              Got It
+              Understood
             </button>
           </div>
         </div>
@@ -537,17 +532,12 @@ export default function ScrollySections({
                 Close
               </button>
 
-              <button
-                onClick={() => {
-                  const id = selectedDossier.id;
-                  setSelectedDossier(null);
-                  handleOpenRegistration(id);
-                }}
-                className="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-800 hover:from-red-600 hover:to-red-700 text-white font-benguiat font-bold text-sm tracking-[0.2em] uppercase shadow-[0_0_25px_rgba(255,20,30,0.5)] cursor-pointer flex items-center justify-center gap-2 active:scale-95 transition-all"
+              <div
+                className="flex-1 py-3 px-4 sm:px-6 rounded-xl bg-gradient-to-r from-[#140105] via-[#080003] to-[#140105] border border-red-900/60 text-zinc-400 font-benguiat font-bold text-xs sm:text-sm tracking-[0.16em] uppercase flex items-center justify-center gap-2 select-none shadow-[0_0_15px_rgba(255,20,30,0.15)] text-center"
               >
-                <span>Register for {selectedDossier.title}</span>
-                <ChevronRight className="w-4 h-4 text-white" />
-              </button>
+                <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse shrink-0" />
+                <span>REGISTRATIONS CLOSED • EVENT CONCLUDED</span>
+              </div>
             </div>
           </div>
         </div>
@@ -627,17 +617,22 @@ export default function ScrollySections({
             {/* Editorial Header */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-5">
               <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-1 rounded-full bg-red-950/80 border border-red-700/60 text-[10px] sm:text-xs font-bold tracking-[0.2em] text-red-400 uppercase">
+                    MISSION COMPLETE • ALL GATES CLOSED
+                  </span>
+                </div>
                 <h2 className="font-benguiat text-3xl sm:text-5xl font-extrabold text-white tracking-wide">
-                  CHOOSE YOUR EXPEDITION
+                  THE FOUR EXPEDITIONS
                 </h2>
                 <p className="text-sm sm:text-base text-zinc-300 mt-2 font-normal">
-                  Four flagship department events. Register your squad and battle for victory.
+                  TechSpark 2K26 has officially concluded. Registrations are closed — thank you to everyone who stepped through the Rift!
                 </p>
               </div>
 
               <div className="flex items-center gap-2 text-xs text-zinc-400 font-sans">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27]" />
-                <span>Department of ISE, APSCE • October 15 &amp; 16, 2026</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-zinc-500" />
+                <span>Department of ISE, APSCE • October 15 &amp; 16, 2026 • Concluded</span>
               </div>
             </div>
 
@@ -661,7 +656,7 @@ export default function ScrollySections({
                   <div className="absolute top-4 right-5 sm:static sm:p-5 flex items-start justify-end sm:justify-between z-10 pointer-events-none">
                     <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/80 border border-red-800/70 text-[11px] font-semibold text-red-300 tracking-wider uppercase font-sans">
                       <Calendar className="w-3 h-3 text-red-400" />
-                      <span>{evt.shortDate} • {evt.timing}</span>
+                      <span>{evt.shortDate} • CONCLUDED</span>
                     </span>
 
                     <span className="stroke-text-red font-benguiat text-4xl sm:text-5xl font-black group-hover:neon-text-red transition-all leading-none">
@@ -694,9 +689,9 @@ export default function ScrollySections({
                         <Calendar className="w-3.5 h-3.5 text-red-500 shrink-0" />
                         <span>{evt.shortDate || evt.date}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-zinc-300 font-medium">
-                        <Clock className="w-3.5 h-3.5 text-red-400 shrink-0" />
-                        <span>{evt.timing}</span>
+                      <div className="flex items-center gap-1.5 text-zinc-400 font-medium">
+                        <Clock className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
+                        <span>Concluded</span>
                       </div>
                     </div>
 
@@ -721,16 +716,17 @@ export default function ScrollySections({
                         View Details
                       </button>
 
-                      <button
+                      <div
                         onClick={(e) => {
                           e.stopPropagation();
-                          handleOpenRegistration(evt.id);
+                          handleOpenRegistration();
                         }}
-                        className="py-2 px-3.5 rounded-lg bg-red-700 hover:bg-red-600 text-white text-xs font-semibold transition-all shadow-[0_0_15px_rgba(255,20,30,0.4)] flex items-center gap-1"
+                        className="py-2 px-3 rounded-lg bg-zinc-950/90 hover:bg-red-950/40 border border-red-950/80 hover:border-red-800/60 text-zinc-400 hover:text-zinc-300 text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors"
+                        title="Click to view status"
                       >
-                        <span>Register</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </button>
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
+                        <span>Closed</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -738,9 +734,12 @@ export default function ScrollySections({
             </div>
 
             {/* Subtext */}
-            <div className="flex items-center justify-between text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
-              <span>Tap any event card to view complete rules, timings, and event details.</span>
-              <span className="text-red-400 font-medium">October 15 &amp; 16, 2026</span>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-400 border-t border-zinc-800/80 pt-3 font-sans">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-500/80" />
+                <span className="text-zinc-300 font-medium">Registrations are officially closed for all events.</span>
+              </div>
+              <span className="text-red-400 font-semibold tracking-wider uppercase">Event Concluded • Oct 15 &amp; 16, 2026</span>
             </div>
 
             {/* Fest Student Coordinators (Skanda & Jeevan) - No Photo, Direct WhatsApp */}

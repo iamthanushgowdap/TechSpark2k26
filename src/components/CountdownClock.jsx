@@ -1,58 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function CountdownClock() {
-  // Target fest date: October 15th, 2026 at 09:30 AM IST
-  const targetDate = new Date('2026-10-15T09:30:00+05:30').getTime();
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      setTimeLeft({ days, hours, minutes, seconds });
-    };
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
-  }, [targetDate]);
-
-  const pad = (n) => String(n).padStart(2, '0');
-
-  const timeSegments = [
-    { label: 'DAYS', value: pad(timeLeft.days) },
-    { label: 'HOURS', value: pad(timeLeft.hours) },
-    { label: 'MINUTES', value: pad(timeLeft.minutes) },
-    { label: 'SECONDS', value: pad(timeLeft.seconds) },
-  ];
-
   return (
-    <div className="flex flex-col items-center">
-      {/* October 15th 09:30 AM Header - Bold, Energetic, Elegant 3D Beveled Typography */}
+    <div className="flex flex-col items-center select-none font-sans">
+      {/* October 15th & 16th Header - Bold, Energetic, Elegant 3D Beveled Typography */}
       <div className="flex items-center justify-center gap-2.5 sm:gap-4 mb-2 sm:mb-3">
         <div className="flex items-center gap-1.5">
           <span className="w-8 sm:w-14 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-red-400 shadow-[0_0_10px_#ff1e27]" />
           <span className="text-red-500 text-[9px] sm:text-[10px] drop-shadow-[0_0_8px_#ff1e27]">◆</span>
         </div>
-        <span className="font-cinzel text-sm xs:text-base sm:text-xl md:text-2xl font-black tracking-[0.22em] sm:tracking-[0.32em] text-white uppercase scale-y-105 select-none whitespace-nowrap">
-          OCTOBER 15TH • 09:30 AM
+        <span className="font-cinzel text-xs xs:text-sm sm:text-lg md:text-xl font-black tracking-[0.2em] sm:tracking-[0.28em] text-white uppercase scale-y-105 whitespace-nowrap">
+          OCTOBER 15TH &amp; 16TH • MISSION COMPLETE
         </span>
         <div className="flex items-center gap-1.5">
           <span className="text-red-500 text-[9px] sm:text-[10px] drop-shadow-[0_0_8px_#ff1e27]">◆</span>
@@ -60,31 +18,26 @@ export default function CountdownClock() {
         </div>
       </div>
 
-      {/* Retro LED Countdown Boxes */}
-      <div className="flex items-center gap-2 sm:gap-3 md:gap-4 p-2.5 sm:p-3 rounded-xl bg-black/60 border border-red-900/40 backdrop-blur-md shadow-[0_0_30px_rgba(255,20,30,0.15)]">
-        {timeSegments.map((item, idx) => (
-          <React.Fragment key={item.label}>
-            <div className="flex flex-col items-center min-w-[56px] sm:min-w-[70px] md:min-w-[80px]">
-              {/* Digit Box */}
-              <div className="w-full py-1.5 sm:py-2 px-1 text-center bg-gradient-to-b from-[#220205] to-[#0c0003] border border-red-800/50 rounded-lg shadow-[inset_0_1px_0_rgba(255,80,80,0.3)]">
-                <span className="font-retro-terminal text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-red-200 drop-shadow-[0_0_10px_rgba(255,30,40,0.9)]">
-                  {item.value}
-                </span>
-              </div>
-              {/* Label */}
-              <span className="text-[9px] sm:text-[10px] font-mono-tech tracking-wider text-red-400/80 mt-1 uppercase font-semibold">
-                {item.label}
-              </span>
-            </div>
+      {/* Retro Sci-Fi Concluded Console */}
+      <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-[#160105]/95 via-black/95 to-[#160105]/95 border border-red-800/60 backdrop-blur-xl shadow-[0_0_40px_rgba(255,20,30,0.25)]">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-red-950/80 border border-red-700/70">
+          <span className="w-2 h-2 rounded-full bg-red-500 shadow-[0_0_8px_#ff1e27] animate-pulse" />
+          <span className="font-benguiat text-xs sm:text-sm font-bold tracking-wider text-red-200 uppercase">
+            EVENT CONCLUDED
+          </span>
+        </div>
 
-            {/* Glowing Colon Separator */}
-            {idx < timeSegments.length - 1 && (
-              <span className="font-retro-terminal text-xl sm:text-2xl text-red-500 animate-pulse -mt-4">
-                :
-              </span>
-            )}
-          </React.Fragment>
-        ))}
+        <span className="hidden sm:inline text-red-900">•</span>
+
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300">
+          <span className="font-sans font-medium text-zinc-200">
+            All event gates are officially closed.
+          </span>
+          <span className="text-zinc-500 hidden md:inline">|</span>
+          <span className="text-red-400/90 text-xs hidden md:inline">
+            Thank you to all squads, participants &amp; survivors!
+          </span>
+        </div>
       </div>
     </div>
   );
